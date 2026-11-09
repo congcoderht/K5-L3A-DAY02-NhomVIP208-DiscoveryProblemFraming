@@ -92,49 +92,59 @@ Nhóm chọn 3 candidate đại diện nổi bật nhất từ 15 bài toán:
 
 ### 3.1. Assumption Map
 
-|   # | Giả định | Loại (Value / Usability / Feasibility / Viability) | Quan trọng (1–5) | Đã có bằng chứng (1–5) | Kiểm chứng trước? |
-| --: | -------- | -------------------------------------------------- | ---------------: | ---------------------: | ----------------- |
-|   1 |          |                                                    |                  |                        |                   |
-|   2 |          |                                                    |                  |                        |                   |
-|   3 |          |                                                    |                  |                        |                   |
-|   4 |          |                                                    |                  |                        |                   |
-|   5 |          |                                                    |                  |                        |                   |
-|   6 |          |                                                    |                  |                        |                   |
+| # | Giả định | Loại | Quan trọng (1–5) | Đã có bằng chứng (1–5) | Kiểm chứng trước? |
+|--:|---|---|---:|---:|---|
+| 1 | Hồ sơ thường thiếu hoặc không nhất quán giấy tờ/thông tin đến mức gây thêm việc cho người tiếp nhận. | Value | 5 | 1 | Có — hỏi về các trường hợp gần đây và tần suất. |
+| 2 | Thiếu sót thường chỉ được phát hiện sau lần kiểm tra đầu, dẫn đến liên hệ bổ sung hoặc hồ sơ phải quay lại bước trước. | Value | 5 | 1 | Có — lần gần nhất, số lượt bổ sung và hệ quả. |
+| 3 | Checklist theo loại hồ sơ có thể giúp phát hiện thiếu giấy tờ sớm mà không làm bỏ qua điểm kiểm soát. | Usability | 4 | 1 | Sau — hỏi nhân viên đang dùng checklist nào và ngoại lệ nào checklist chưa bao quát. |
+| 4 | Thông tin cần đối chiếu giữa tài liệu và Core Banking có thể được xác định rõ theo quy tắc nghiệp vụ. | Feasibility | 4 | 1 | Sau — hỏi trường dữ liệu, nguồn chuẩn và cách xử lý khi nguồn không khớp. |
+| 5 | Dữ liệu hồ sơ có thể được xử lý trong công cụ được tổ chức cho phép mà vẫn đáp ứng yêu cầu bảo mật và tuân thủ. | Viability | 5 | 1 | Sau — cần xác nhận chính sách với người có thẩm quyền; không tải dữ liệu thật lên dịch vụ ngoài. |
+| 6 | Checklist, quy tắc hoặc chức năng sẵn có có thể giảm vấn đề mà chưa cần AI. | Feasibility / Value | 4 | 1 | Có — hỏi về workaround và chức năng đang dùng. |
 
-_Điền 4–6 giả định; xóa dòng thừa._
-
-Giả định nhóm kiểm chứng trong buổi này:
+Giả định ưu tiên kiểm chứng: #1 và #2 (pain/tần suất/tác động) cùng #6 (giải pháp hiện có). Các pitch và mức độ đồng thuận trong nhóm là tín hiệu ban đầu, chưa thay thế bằng chứng từ người trực tiếp làm nghiệp vụ. Điểm bằng chứng hiện chấm thấp vì báo cáo chưa ghi nhận phỏng vấn, survey hoặc log độc lập; cập nhật sau khi thu thập dữ liệu.
 
 ### 3.2. Kiểm chứng
 
-Cách đã dùng: Phỏng vấn / Survey / Log, ticket, review
+**Trạng thái:** Chưa ghi nhận kết quả phỏng vấn/survey/log trong tài liệu. Nhóm cần thực hiện phỏng vấn 2–3 nhân viên từng tiếp nhận hoặc thẩm định hồ sơ; nếu không tiếp cận được, khảo sát 5–10 người có trải nghiệm phù hợp. Không phỏng vấn thành viên nhóm thay cho người dùng quy trình.
+
+**Câu hỏi phỏng vấn gợi ý (hỏi về lần đã xảy ra, không hỏi về ý tưởng AI):**
+
+1. Lần gần nhất hồ sơ bị yêu cầu bổ sung là khi nào? Thiếu hoặc cần làm rõ nội dung gì?
+2. Ở bước nào phát hiện thiếu sót? Hồ sơ đã được kiểm tra trước đó chưa?
+3. Sau khi phát hiện, chuyện gì xảy ra tiếp theo? Có phải liên hệ lại hoặc chuyển hồ sơ về bước trước không?
+4. Trường hợp đó làm tăng thêm bao nhiêu lượt trao đổi hoặc thời gian chờ? Anh/chị ước lượng dựa trên hồ sơ nào/kỳ nào?
+5. Anh/chị hiện dùng checklist, quy tắc hoặc chức năng nào để kiểm tra? Cách đó còn vướng ở đâu?
+6. Có trường hợp nào checklist phát hiện đủ ngay lần đầu, hoặc việc bổ sung không làm chậm đáng kể không? (tín hiệu phản bác)
+
+Không ghi tên khách hàng, mã hồ sơ, số giấy tờ, thông tin tài chính hay dữ liệu nội bộ nhạy cảm vào báo cáo.
 
 Interview snapshot (mỗi buổi phỏng vấn một bảng, hoặc đặt file trong `report/assets/cp4-interview-snapshot-N.md`):
 
 | Trường                                            | Nội dung |
 | ------------------------------------------------- | -------- |
-| Người được hỏi (vai trò, không ghi tên thật)      |          |
-| Câu nói đáng nhớ nhất (nguyên văn)                |          |
-| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? |          |
-| Hiện đang xử lý bằng cách nào (workaround)?       |          |
-| Mất bao lâu, bao lần?                             |          |
-| Insight / opportunity rút ra                      |          |
+| Người được hỏi (vai trò, không ghi tên thật)      | Chờ phỏng vấn; điền vai trò sau khi thực hiện. |
+| Câu nói đáng nhớ nhất (nguyên văn)                | Chưa có dữ liệu. |
+| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | Chưa có dữ liệu. |
+| Hiện đang xử lý bằng cách nào (workaround)?       | Chưa có dữ liệu. |
+| Mất bao lâu, bao lần?                             | Chưa có dữ liệu; hỏi về một trường hợp cụ thể. |
+| Insight / opportunity rút ra                      | Chưa kết luận; cập nhật sau phỏng vấn. |
 
 Tổng hợp:
 
 | Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác |
-| ----- | ----------------: | ----------------- | ----------------- |
-|       |                   |                   |                   |
+|---|---:|---|---|
+| Phỏng vấn nhân viên tiếp nhận/thẩm định hoặc survey người có trải nghiệm | Chưa thực hiện; mục tiêu 2–3 phỏng vấn hoặc 5–10 phản hồi survey | Chưa có dữ liệu; điền sau khi thu thập | Chưa có dữ liệu; ghi cả trường hợp ít/không gặp vấn đề |
+| Log/timestamp/checklist đã ẩn danh và được phép sử dụng (nếu có) | Chưa tiếp cận | Chưa có dữ liệu | Chưa có dữ liệu |
 
-**Nhóm đã sửa problem thế nào sau kiểm chứng:**
+**Nhóm đã sửa problem thế nào sau kiểm chứng:** Chưa thể kết luận trước khi phỏng vấn/survey hoặc xem dữ liệu được phép. Sau khi có kết quả, ghi điều chỉnh actor, bước nghẽn, phạm vi hồ sơ và metric; nếu bằng chứng yếu thì thu hẹp hoặc đổi candidate.
 
 ### 3.3. Research giải pháp đã có
 
 | Công cụ / case / pattern | Link | Giải bước nào trong quy trình? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
-| ------------------------ | ---- | ------------------------------ | --------- | --------------------- | ---------------- |
-|                          |      |                                |           |                       |                  |
-|                          |      |                                |           |                       |                  |
-|                          |      |                                |           |                       |                  |
+|---|---|---|---|---|---|
+| Microsoft Azure AI Document Intelligence — OCR và trích xuất biểu mẫu/tài liệu | [Tài liệu chính thức](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-3.1.0) | Đọc văn bản, cấu trúc, bảng và trường key/value từ tài liệu; có mô hình dựng sẵn và mô hình tùy chỉnh. | Có thể hỗ trợ số hóa/trích xuất dữ liệu để nhân viên rà soát. | Trích xuất không tự chứng minh giấy tờ hợp lệ, dữ liệu đúng hay đủ điều kiện vay; cần kiểm tra độ chính xác trên loại tài liệu thực tế và chính sách lưu/chuyển dữ liệu. | Tách bước OCR/trích xuất khỏi bước xác minh nghiệp vụ; chỉ dùng như hỗ trợ nếu được tổ chức cho phép. |
+| Google Cloud Document AI — OCR và bộ xử lý trích xuất | [Danh sách processor chính thức](https://docs.cloud.google.com/document-ai/docs/processors-list) | Nhận dạng văn bản và trích xuất thực thể/trường theo loại processor. | Có các processor theo nhiệm vụ; có thể tham khảo cho bước đọc tài liệu. | Khả năng theo ngôn ngữ/loại giấy tờ và vùng xử lý cần kiểm tra; không thay thế xác minh nguồn chuẩn hay phê duyệt tín dụng. | So sánh trên tài liệu giả lập/đã khử định danh; không đưa hồ sơ thật vào thử nghiệm khi chưa được phép. |
+| Amazon Textract — phân tích biểu mẫu và bảng | [Tài liệu chính thức](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html) | Trích xuất text, key-value từ biểu mẫu, bảng và phản hồi theo truy vấn. | Có thể hỗ trợ lấy trường dữ liệu có cấu trúc từ tài liệu. | Đầu ra trích xuất vẫn có thể sai; cần người kiểm tra và cần đánh giá riêng trên tài liệu tiếng Việt/định dạng thực tế cùng yêu cầu bảo mật. | Công cụ có thể hỗ trợ đọc/đối chiếu sơ bộ; quyết định hợp lệ, hạn mức và phê duyệt vẫn thuộc quy trình nghiệp vụ. |
 
 ---
 

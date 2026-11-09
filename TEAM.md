@@ -12,11 +12,11 @@
 
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
-| 1 |Trương Việt Công | 2A202603585 | Trưởng nhóm | congcoderht |
-| 2 | Lê Quang Linh | 2A202603583 | Thành viên | linhlqhe181396 |
-| 3 | Lê Anh Quân | 2A202603576 | Thành viên | quanle28 |
+| 1 |Trương Việt Công | 2A202603585 | Điều phối thời gian,kiểm chứng | congcoderht |
+| 2 | Lê Quang Linh | 2A202603583 | ghi chép, phản biện | linhlqhe181396 |
+| 3 | Lê Anh Quân | 2A202603576 | research,kiểm chứng | quanle28 |
 | 4 | Nguyễn Trường Duy | 2A202603589| Thành Viên | Dizo279 |
-| 5 | Đoàn Văn Tú| 2A202603595 | Thành viên | tu7749 |
+| 5 | Đoàn Văn Tú| 2A202603595 | Viết Problem Statement. | tu7749 |
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
 Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối thời gian, ghi chép, người phản biện chính, phụ trách kiểm chứng (phỏng vấn/survey), phụ trách research, vẽ quy trình, viết Problem Statement.
