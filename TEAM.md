@@ -35,26 +35,6 @@ Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối t
 
 ## Cá nhân
 
-Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `HoVaTen-MSSV`.
-
-### HoVaTen-MSSV
-
-**Phần việc phụ trách:**
-
--
-
-**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
-
--
-
-**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
-
--
-
-**Điều mình học được từ phần nhóm:**
-
--
-
 ### LeQuangLinh-2A202603583
 
 **Phần việc phụ trách:**
