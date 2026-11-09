@@ -92,11 +92,19 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 - Em học được rằng quy trình tương lai không chỉ là thêm AI vào các bước hiện tại, mà phải phân định rõ việc nào do Rule, AI và con người thực hiện. Quy trình mới phải đảm bảo rủi ro được kiểm soát, trách nhiệm pháp lý rõ ràng và không làm tăng thời gian xử lý hồ sơ.
 
 ### LeAnhQuan-2A202603576
+
 **Phần việc phụ trách:**
+
 - Mức can thiệp & Quyết định (CP6)
+
 **Đóng góp cụ thể (mình đã làm gì, ra sản phẩm gì):
+
 -Hoàn thiện ma trận Độ mơ hồ × Độ phức tạp, so sánh 4 mức can thiệp (chọn Workflow 2 giai đoạn), xây dựng AI Canvas và trả lời 2 câu hỏi thiết kế Google PAIR.   Hoàn thiện bảng Quyết định với 4 khía cạnh rủi ro, xác định pilot nhỏ nhất, ngưỡng dừng và chốt quyết định Not Yet cùng nhóm.
+
 **Bằng chứng** (phần nào trong group_report.md, file nào trong report/assets/, commit nào):
+
 - Phần 6. Mức can thiệp AI & Quyết định (CP6) trong group_report.md, commit: Le Anh Quan up cp7.
+
 **Điều mình học được từ phần nhóm:**
+
 - Em học được cách chọn đúng mức can thiệp: bài toán có quy trình định sẵn và độ mơ hồ thấp thì dùng Workflow kết hợp Rule và con người (HITL), không lạm dụng Agent. Đồng thời, nhận ra rào cản lớn nhất của ngân hàng nằm ở tính tuân thủ và bảo mật dữ liệu (Viability), nên quyết định Not Yet là hoàn toàn hợp lý khi chưa có dữ liệu kiểm chứng thực tế. 
