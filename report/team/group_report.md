@@ -155,36 +155,95 @@ Tổng hợp:
 Sơ đồ (ASCII, Mermaid hoặc link ảnh trong `report/assets/`):
 
 ```text
-
+Khách hàng nộp hồ sơ
+        |
+        v
+[Nhân viên tiếp nhận mở và sắp xếp từng tài liệu]
+        |
+        v
+[Đối chiếu checklist: đủ / thiếu / không hợp lệ?]
+        |
+        +---- Phát hiện thiếu/sai ----> [Liên hệ khách hàng bổ sung]
+        |                                      |
+        |                                      v
+        |                              [Nhận lại và kiểm tra lại]
+        |                                      |
+        +--------------------------------------+
+        |
+        v
+[Đối chiếu thông tin giữa tài liệu và Core Banking]
+        |
+        v
+[Chuyển hồ sơ sang thẩm định khi đã được xác nhận]
 ```
 
 | Bước | Actor | Input | Output | Thời gian / tần suất | Ghi chú |
 | ---: | ----- | ----- | ------ | -------------------- | ------- |
-|    1 |       |       |        |                      |         |
-|    2 |       |       |        |                      |         |
-|    3 |       |       |        |                      |         |
-|    4 |       |       |        |                      |         |
-|    5 |       |       |        |                      |         |
+| 1 | Khách hàng / nhân viên tiếp nhận | Bộ hồ sơ vay vốn cá nhân và danh mục giấy tờ | Hồ sơ được tiếp nhận, thường gồm nhiều file/ảnh | Mỗi hồ sơ | Tài liệu có thể chưa sắp xếp, khác định dạng hoặc thiếu thông tin |
+| 2 | Nhân viên tiếp nhận / tín dụng | Từng tài liệu trong hồ sơ và checklist nghiệp vụ | Danh sách tài liệu đã kiểm tra, các mục nghi thiếu/không hợp lệ | Khoảng 10-20 phút/hồ sơ | Phải mở và xem từng tài liệu riêng lẻ |
+| 3 | Nhân viên tín dụng | Tài liệu đã kiểm tra và dữ liệu trên Core Banking | Kết quả đối chiếu thông tin khách hàng/khoản vay | Khoảng 10-20 phút/hồ sơ | Sai lệch nhỏ có thể bị bỏ sót khi phải đối chiếu thủ công |
+| 4 | Nhân viên tiếp nhận / khách hàng | Danh sách thiếu, sai hoặc cần làm rõ | Yêu cầu bổ sung/chỉnh sửa và hồ sơ được gửi lại | Thường lặp lại 1 hoặc nhiều lần | Các thiếu sót được phát hiện rải rác, khách hàng phải bổ sung nhiều lần |
+| 5 | Nhân viên tín dụng / thẩm định | Hồ sơ đã bổ sung và kết quả đối chiếu | Hồ sơ được xác nhận để chuyển sang thẩm định | Tổng cộng ước tính 35-45 phút/hồ sơ, chưa tính thời gian chờ bổ sung | Nếu vẫn còn sai lệch, hồ sơ quay lại bước 3 hoặc 4 |
 
-**Bottleneck chính:**
+**Bottleneck chính:** Nhân viên phải kiểm tra thủ công từng file, đối chiếu thông tin giữa nhiều nguồn và phát hiện thiếu sót theo từng lần. Vì vậy, thiếu sót có thể chỉ được phát hiện sau khi hồ sơ đã đi qua một bước, dẫn đến liên hệ bổ sung nhiều lần, tăng thời gian xử lý và nguy cơ bỏ sót sai lệch.
 
 ### 4.2. Quy trình tương lai
 
 Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người**, **boundary** ở đâu, **phương án quay về** khi AI sai.
 
 ```text
+Khách hàng nộp tài liệu
+        |
+        v
+[Rule: tiếp nhận, phân loại tài liệu và kiểm tra định dạng cơ bản]
+        |
+        v
+[AI: OCR/trích xuất các trường cần thiết từ tài liệu]
+        |
+        v
+[Rule: đối chiếu checklist bắt buộc và dữ liệu Core Banking]
+        |
+        +---- Dữ liệu đầy đủ, khớp và độ tin cậy đạt ngưỡng ----+
+        |                                                       |
+        |                                                       v
+        |                                      [Con người xác nhận kết quả]
+        |                                                       |
+        |                                                       v
+        |                                      [Chuyển hồ sơ sang thẩm định]
+        |
+        +---- Thiếu/sai/không chắc chắn ----------------------->
+                         [Con người xem tài liệu gốc và quyết định]
+                                      |
+                    +-----------------+------------------+
+                    |                                    |
+                    v                                    v
+       [Yêu cầu khách hàng bổ sung]        [Chấp nhận ngoại lệ/cần làm rõ]
+                    |                                    |
+                    +----------------> [Cập nhật và kiểm tra lại]
 
+Boundary: Hệ thống chỉ trích xuất, kiểm tra đầy đủ và đánh dấu sai lệch;
+không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê duyệt khoản vay.
 ```
+
+| Bước | Loại xử lý | Actor chính | Input / output | Boundary và phương án quay về |
+| ---: | --------- | ----------- | -------------- | ----------------------------- |
+| 1 | **Rule** | Hệ thống + nhân viên tiếp nhận | Tiếp nhận file, phân loại theo loại giấy tờ, kiểm tra file có đọc được và đúng định dạng | File không đọc được được đưa vào hàng đợi xử lý thủ công; không tự động loại hồ sơ |
+| 2 | **AI** | Hệ thống hỗ trợ, nhân viên giám sát | OCR/trích xuất các trường trên CCCD, sao kê, hợp đồng và tài liệu liên quan | Nếu độ tin cậy thấp, thiếu trường hoặc sai loại tài liệu thì giữ lại tài liệu gốc và chuyển HITL |
+| 3 | **Rule** | Hệ thống + nhân viên tín dụng | Kiểm tra checklist bắt buộc và đối chiếu các trường với Core Banking | Rule chỉ đánh dấu thiếu/sai lệch; không tự kết luận hồ sơ đủ điều kiện vay |
+| 4 | **Con người (HITL)** | Nhân viên tiếp nhận / tín dụng | Xem danh sách cảnh báo, tài liệu gốc và nguồn dữ liệu chuẩn | Nhân viên xác nhận, sửa kết quả trích xuất hoặc ghi nhận ngoại lệ; đây là điểm kiểm soát bắt buộc |
+| 5 | **Con người + workflow** | Nhân viên tiếp nhận và khách hàng | Danh sách thiếu/sai đã được gom theo một lần yêu cầu | Nếu còn thiếu thông tin, quay về bước 1-3; nếu đạt yêu cầu, chuyển sang thẩm định |
+
+**Phương án quay về khi AI sai:** Không dùng kết quả AI nếu không đạt ngưỡng độ tin cậy hoặc không khớp với tài liệu gốc. Nhân viên mở tài liệu gốc, sửa/xác nhận trường dữ liệu thủ công và ghi nhận lý do. Nếu hệ thống không hoạt động, quy trình fallback là checklist và đối chiếu thủ công như quy trình hiện tại.
 
 ### 4.3. Before / after
 
-| Chỉ số               | Trước | Sau (kỳ vọng) | Ghi chú |
-| -------------------- | ----: | ------------: | ------- |
-| Số bước              |       |               |         |
-| Tổng thời gian       |       |               |         |
-| Số bước thủ công     |       |               |         |
-| Bottleneck chính     |       |               |         |
-| Rủi ro mới phát sinh |       |               |         |
+| Chỉ số | Trước | Sau (kỳ vọng) | Ghi chú |
+| ------ | ----- | ------------- | ------- |
+| Số bước | 5 bước chính, có thể lặp lại bước 3-4 | 5 bước chính; phần kiểm tra được chạy tự động trước khi chuyển HITL | Số bước trên sơ đồ không giảm nhiều, nhưng giảm số lần lặp và thời gian xử lý ở mỗi bước |
+| Tổng thời gian | Khoảng 35-45 phút/hồ sơ, chưa tính thời gian chờ khách hàng bổ sung | Khoảng 15-25 phút/hồ sơ nếu tài liệu đọc được và dữ liệu khớp; hồ sơ ngoại lệ có thể lâu hơn | Cần đo lại bằng hồ sơ giả lập hoặc log thực tế; đây là target kỳ vọng, chưa phải số liệu đã xác nhận |
+| Số bước thủ công | Khoảng 4-5 bước: mở file, kiểm tra checklist, đối chiếu Core Banking, lập yêu cầu bổ sung và kiểm tra lại | Khoảng 1-2 bước: xem cảnh báo/tài liệu gốc và xác nhận hoặc sửa kết quả trước khi chuyển thẩm định | Rule và AI chỉ hỗ trợ sàng lọc; quyết định nghiệp vụ vẫn do con người thực hiện |
+| Bottleneck chính | Mở và kiểm tra từng tài liệu; đối chiếu thủ công giữa nhiều nguồn; phát hiện thiếu sót rải rác nên phải yêu cầu bổ sung nhiều lần | Xử lý các trường hợp AI trích xuất không chắc chắn, dữ liệu không khớp hoặc checklist có ngoại lệ | Cần thiết kế hàng đợi HITL và hiển thị bằng chứng từ tài liệu gốc để người dùng kiểm tra nhanh |
+| Rủi ro mới phát sinh | Bỏ sót thiếu/sai lệch, xử lý lại nhiều lần và kéo dài thời gian chờ | OCR/trích xuất sai, cảnh báo nhầm hoặc bỏ sót; rò rỉ dữ liệu hồ sơ; người dùng quá tin vào kết quả tự động | Giảm thiểu bằng ngưỡng độ tin cậy, đối chiếu tài liệu gốc, log/audit, phân quyền dữ liệu và bắt buộc HITL trước khi chuyển thẩm định |
 
 ---
 
