@@ -27,9 +27,9 @@
 | 7 | Nguyễn Trường Duy | Khi tiếp nhận một bộ hồ sơ vay vốn cá nhân, tôi muốn nhanh chóng kiểm tra tính đầy đủ và hợp lệ của các tài liệu, để đảm bảo hồ sơ đáp ứng yêu cầu trước khi tiến hành thẩm định. | Credit Officer trực tiếp tiếp nhận và kiểm tra hồ sơ vay vốn cá nhân. | Phải mở và kiểm tra từng tài liệu riêng lẻ, mất thời gian khi hồ sơ có nhiều giấy tờ hoặc tài liệu không được sắp xếp thống nhất. | |
 | 8 | Nguyễn Trường Duy | Khi thẩm định hồ sơ vay vốn, tôi muốn nhanh chóng phát hiện những thông tin không nhất quán giữa các tài liệu và dữ liệu Core Banking, để hạn chế sai sót trong quá trình đánh giá khách hàng và khoản vay. | Credit Officer chịu trách nhiệm kiểm tra, đối chiếu và xác minh thông tin khách hàng. | Phải đối chiếu thủ công giữa nhiều tài liệu và hệ thống khác nhau. Những sai lệch nhỏ có thể bị bỏ sót khi số lượng hồ sơ lớn. | |
 | 9 | Nguyễn Trường Duy | Khi hoàn tất quá trình thẩm định hồ sơ vay vốn, tôi muốn tự động tổng hợp thông tin và tạo bản dự thảo báo cáo thẩm định theo biểu mẫu chuẩn, để tiết kiệm thời gian lập báo cáo và chuyển cấp có thẩm quyền phê duyệt | Credit Officer chịu trách nhiệm phân tích hồ sơ, đưa ra nhận xét và lập báo cáo thẩm định trình cấp phê duyệt. | Phải tổng hợp thông tin từ nhiều nguồn và tự viết nội dung nhận xét, đánh giá theo biểu mẫu. Đây là công đoạn tốn thời gian và đòi hỏi khả năng phân tích nghiệp vụ. | |
-| 10 | | | | | |
-| 11 | | | | | |
-| 12 | | | | | |
+| 10 | Đoàn Văn Tú | Khi nhận nhiều giấy tờ, tôi muốn biết bản nào mới nhất và còn thiếu gì để tránh nhầm lẫn. | Nhân viên tiếp nhận hồ sơ | Tìm bản giấy tờ mới nhất và rà soát tài liệu thiếu mất 10 phút/lượt kiểm tra. | Nếu thống nhất cách đặt tên file và dùng checklist, vấn đề đã được giải quyết chưa? |
+| 11 | Đoàn Văn Tú | Khi cần biết thông tin hồ sơ vay, tôi muốn tự tìm được thông tin để không phải gọi hỏi nhiều lần. | Khách hàng có hồ sơ vay | Khách hàng phụ thuộc vào nhân viên; nhân viên phải hỏi bộ phận phụ trách 1–2 lần/hồ sơ, mỗi lần 3 phút. | Nếu thông tin chưa được cập nhật, trang tra cứu có thực sự giúp khách hàng giảm gọi hỏi không? |
+| 12 | Đoàn Văn Tú | Khi muốn tất toán trước hạn, tôi muốn biết thủ tục và số tiền cần thanh toán để chuẩn bị đầy đủ. | Khách hàng muốn tất toán trước hạn | Phải liên hệ 1–2 lần để xác nhận thủ tục và số tiền, mỗi cuộc trao đổi 15 phút. | Khách hàng hỏi lại vì hướng dẫn chưa rõ hay vì thay đổi ngày tất toán làm số tiền cần trả thay đổi? |
 
 ### 2.2. Cluster
 
