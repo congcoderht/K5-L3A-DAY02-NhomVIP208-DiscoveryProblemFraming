@@ -4,19 +4,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm: 
-- Candidate problem nhóm chọn (1 câu):
-- Quyết định cuối (Go / Not Yet / No-Go):
+- Tên nhóm: NhomVIP208
+- Candidate problem nhóm chọn (1 câu): Nhân viên khó phát hiện sớm giấy tờ còn thiếu, tài liệu không đọc được hoặc thông tin sai lệch cần xác minh trước khi chuyển hồ sơ vay cá nhân sang thẩm định.
+- Quyết định cuối (Go / Not Yet / No-Go): Not Yet — cần kiểm chứng thêm quy trình, hiệu quả và điều kiện xử lý dữ liệu trước khi thử nghiệm OCR.
 
 ## Thành viên
 
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
-| 1 |Trương Việt Công | 2A202603585 | Điều phối thời gian,kiểm chứng | congcoderht |
-| 2 | Lê Quang Linh | 2A202603583 | ghi chép, phản biện | linhlqhe181396 |
-| 3 | Lê Anh Quân | 2A202603576 | research,kiểm chứng | quanle28 |
-| 4 | Nguyễn Trường Duy | 2A202603589| Thành Viên | Dizo279 |
-| 5 | Đoàn Văn Tú| 2A202603595 | Viết Problem Statement. | tu7749 |
+| 1 | Trương Việt Công | 2A202603585 | Điều phối thời gian, khảo sát/kiểm chứng, hỗ trợ CP3 và research | congcoderht |
+| 2 | Lê Quang Linh | 2A202603583 | Ghi chép, phản biện, phụ trách hội tụ CP3, hỗ trợ research | linhlqhe181396 |
+| 3 | Lê Anh Quân | 2A202603576 | Phụ trách research, mức can thiệp và quyết định CP6 | quanle28 |
+| 4 | Nguyễn Trường Duy | 2A202603589 | Phụ trách quy trình trước/sau CP5, hỗ trợ kiểm chứng và research | Dizo279 |
+| 5 | Đoàn Văn Tú | 2A202603595 | Phụ trách Problem Statement, góp ý quy trình và phương án No AI/Rule | tu7749 |
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
 Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối thời gian, ghi chép, người phản biện chính, phụ trách kiểm chứng (phỏng vấn/survey), phụ trách research, vẽ quy trình, viết Problem Statement.
@@ -25,13 +25,13 @@ Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối t
 
 | Checkpoint | Người chính | Người hỗ trợ | Sản phẩm |
 |---|---|---|---|
-| CP3 — Hội tụ nhóm |Lê Quang Linh|Trương Việt Công| Cluster, cây OST, bảng chấm điểm |
-| CP4 — Kiểm chứng | | | Assumption map, snapshot hoặc survey |
-| CP4 — Research | | | Bảng research có link |
-| CP5 — Quy trình trước/sau | | | Quy trình + bảng before/after |
-| CP5 — Problem Statement v0 | | | Problem Statement v0 |
-| CP6 — Mức can thiệp + Problem Statement v1 | | | Ma trận, AI Canvas, eval, Problem Statement v1 |
-| CP6 — Quyết định | | | 4 rủi ro + Go/Not Yet/No-Go |
+| CP3 — Hội tụ nhóm | Lê Quang Linh | Trương Việt Công, Nguyễn Trường Duy, Đoàn Văn Tú | Cluster, cây OST, bảng chấm điểm và candidate được chọn |
+| CP4 — Kiểm chứng | Trương Việt Công | Lê Quang Linh, Nguyễn Trường Duy | Assumption map, khảo sát 8 phản hồi và tổng hợp kết quả |
+| CP4 — Research | Lê Anh Quân | Lê Quang Linh, Nguyễn Trường Duy, Trương Việt Công | Bảng research giải pháp OCR/trích xuất tài liệu, link và bài học |
+| CP5 — Quy trình trước/sau | Nguyễn Trường Duy | Đoàn Văn Tú, Trương Việt Công, Lê Quang Linh | Quy trình hiện tại/tương lai, boundary, phương án quay về và bảng before/after |
+| CP5 — Problem Statement v0 | Đoàn Văn Tú | Nguyễn Trường Duy, Trương Việt Công, Lê Quang Linh | Problem Statement v0 với actor, quy trình, bottleneck, impact, metric và boundary |
+| CP6 — Mức can thiệp + Problem Statement v1 | Lê Anh Quân | Đoàn Văn Tú, Lê Quang Linh, Nguyễn Trường Duy, Trương Việt Công | So sánh mức can thiệp, AI Canvas/PAIR, tiêu chí đánh giá và Problem Statement v1 |
+| CP6 — Quyết định | Lê Anh Quân | Trương Việt Công, Lê Quang Linh, Nguyễn Trường Duy, Đoàn Văn Tú | Đánh giá 4 rủi ro, quyết định Not Yet, điều kiện kiểm chứng và ngưỡng dừng |
 
 ## Cá nhân
 
@@ -108,3 +108,29 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 **Điều mình học được từ phần nhóm:**
 
 - Em học được cách chọn đúng mức can thiệp: bài toán có quy trình định sẵn và độ mơ hồ thấp thì dùng Workflow kết hợp Rule và con người (HITL), không lạm dụng Agent. Đồng thời, nhận ra rào cản lớn nhất của ngân hàng nằm ở tính tuân thủ và bảo mật dữ liệu (Viability), nên quyết định Not Yet là hoàn toàn hợp lý khi chưa có dữ liệu kiểm chứng thực tế. 
+
+### TruongVietCong-2A202603585
+
+**Phần việc phụ trách:**
+
+- Điều phối thời gian, tham gia kiểm chứng bằng khảo sát và hỗ trợ hội tụ nhóm/research.
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+- Đưa ra 3 candidate về bổ sung giấy tờ, theo dõi bàn giao và đối chiếu hồ sơ; đặt câu hỏi phản biện cho các candidate của Nguyễn Trường Duy.
+- Hỗ trợ gom cluster, cây OST và shortlist; tham gia khảo sát 8 người, tổng hợp kết quả và research giải pháp OCR/trích xuất tài liệu.
+- Tham gia thảo luận các rủi ro và kết luận Not Yet, đề xuất kiểm chứng thêm trước khi pilot.
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+- Mục 2.1–2.4 (pitch, phản biện và hội tụ); mục 3.1–3.3 (assumption map, survey và research); mục 8.1–8.2 (rủi ro và quyết định) trong `report/team/group_report.md`.
+- `report/assets/cp4-survey-result.png` — ảnh kết quả khảo sát.
+- Commit tiêu biểu:
+  - `Dat cau hoi cho van de 7,8,9` (`f4a412f`) — thêm câu hỏi phản biện cho các candidate #7–#9.
+  - `cập nhật số liệu khảo sát + CP6` (`3965132`) — cập nhật kết quả khảo sát và nội dung CP6 trong báo cáo nhóm.
+  - `update individual.md` (`ee3cd1e`) — cập nhật báo cáo cá nhân và thêm ảnh kết quả khảo sát.
+  - `update 2.3` (`6be4c6f`) — cập nhật cây Opportunity Solution Tree và thông tin liên quan trong báo cáo nhóm.
+
+**Điều mình học được từ phần nhóm:**
+
+- Tôi học được cách phân biệt tín hiệu khảo sát tự báo cáo với số đo từ log, và không gọi một khoảng được chọn nhiều nhất là thời gian trung bình. Kết quả khảo sát giúp nhóm xác định hướng cần tìm hiểu thêm, nhưng chưa đủ để khẳng định giải pháp hiệu quả; vì vậy nhóm chọn Not Yet và cần kiểm chứng trên quy trình, dữ liệu được phép trước khi thử nghiệm.
