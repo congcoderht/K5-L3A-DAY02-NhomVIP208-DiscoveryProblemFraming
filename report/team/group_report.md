@@ -254,7 +254,7 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 | **Actor** | Nhân viên tiếp nhận / Credit Officer xử lý hồ sơ vay vốn cá nhân. Khách hàng vay vốn là bên chịu ảnh hưởng khi bị yêu cầu bổ sung nhiều lần. |
 | **Quy trình** | Từ lúc nhận bộ hồ sơ của khách đến lúc chuyển sang thẩm định: mở từng tài liệu, đối chiếu checklist đủ/thiếu/hợp lệ, đối chiếu thông tin giữa tài liệu và Core Banking, liên hệ khách bổ sung rồi kiểm tra lại. |
 | **Bottleneck** | Kiểm tra thủ công từng file (khoảng 10–20 phút/hồ sơ) và đối chiếu thủ công giữa tài liệu với Core Banking (khoảng 10–20 phút/hồ sơ). Thiếu sót được phát hiện rải rác qua nhiều lần kiểm tra nên hồ sơ phải quay lại bước trước, sai lệch nhỏ dễ bị bỏ sót. |
-| **Impact** | Mỗi hồ sơ tốn khoảng 35–45 phút kiểm tra (chưa tính thời gian chờ khách bổ sung); khách bị yêu cầu bổ sung 1 hoặc nhiều lần; sai lệch bị bỏ sót có thể ảnh hưởng chất lượng thẩm định. Các số liệu này là **ước tính từ pitch (CP3), chưa được kiểm chứng ở CP4**. |
+| **Impact** | Mỗi hồ sơ tốn khoảng 35–45 phút kiểm tra (chưa tính thời gian chờ khách bổ sung); khách bị yêu cầu bổ sung 1 hoặc nhiều lần; sai lệch bị bỏ sót có thể ảnh hưởng chất lượng thẩm định. |
 | **Success Metric** (baseline → target, cách đo) | **Chính:** thời gian kiểm tra sơ bộ/hồ sơ, baseline 35–45' (ước tính) → target ≤ 25' (kỳ vọng 15–25'; mức 20' tương ứng outcome giảm 50% ở OST). Cách đo: bấm giờ 5–10 hồ sơ giả lập/đã ẩn danh, trước và sau, cùng một người thực hiện. **Phụ:** số lượt yêu cầu bổ sung/hồ sơ, baseline chưa có (đếm trên 5–10 hồ sơ gần nhất hoặc hồ sơ giả lập) → giảm xuống tối đa 1 lượt. **Guardrail:** tỉ lệ bỏ sót thiếu/sai lệch trên bộ hồ sơ đã gài lỗi sẵn không cao hơn cách làm thủ công hiện tại. |
 | **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | AI/Rule **không** kết luận hồ sơ đủ điều kiện vay, không xếp hạng rủi ro, không đề xuất hay phê duyệt/từ chối khoản vay; không tự sửa dữ liệu Core Banking; không tự gửi yêu cầu cho khách hàng; không tự loại hồ sơ khi file không đọc được. Con người **luôn** kiểm tra: mọi cảnh báo thiếu/sai lệch, mọi trường độ tin cậy thấp hoặc thiếu, và xác nhận hồ sơ trước khi chuyển thẩm định. Dữ liệu thật không được đưa lên dịch vụ ngoài khi chưa có xác nhận của người có thẩm quyền; lab chỉ dùng dữ liệu giả lập/khử định danh. |
  
@@ -275,41 +275,46 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 
 ## 6. Mức can thiệp AI (CP6)
 
+ 
 ### 6.1. Ma trận độ mơ hồ × độ phức tạp
 
-Bài của nhóm nằm ở ô:
-
-Vì sao:
+ 
+| Trục | Định nghĩa (worksheet) | Bài của nhóm | Kết luận |
+| ---- | ---------------------- | ------------ | -------- |
+| **Độ mơ hồ** | Thấp khi kết quả có đúng/sai rõ; cao khi nhiều đầu ra khác nhau đều chấp nhận được | Mỗi phép kiểm tra cho kết quả có/không: giấy tờ có trong hồ sơ hay không, còn hạn hay không, số CCCD trên tài liệu có trùng dữ liệu Core Banking hay không. Hai người kiểm tra cùng một hồ sơ theo cùng checklist sẽ ra cùng kết quả. Những việc cần phán đoán (chấp nhận ngoại lệ, kết luận hồ sơ) nhóm giao cho con người và đặt ngoài phạm vi của AI . | **Thấp** |
+| **Độ phức tạp** | Cao khi có từ 3 bước nối tiếp, từ 3 nguồn dữ liệu, và bước sau phụ thuộc bước trước | Có 5 bước nối tiếp (bảng 4.1); 3 nguồn dữ liệu (tài liệu ảnh/scan, checklist, Core Banking); việc đối chiếu chỉ làm được sau khi đã đọc xong tài liệu. | **Cao** |
+ 
+ Không cần AI tự quyết bước tiếp theo, nên không chọn Agent. AI (nếu dùng) chỉ cần làm một bước là đọc nội dung ảnh/scan; các bước còn lại do Rule hoặc con người đảm nhiệm.
+ 
 
 ### 6.2. So sánh 4 mức
-
-| Mức                       | Phương án cho bài của nhóm | Đủ khi nào | Rủi ro | Chọn? |
-| ------------------------- | -------------------------- | ---------- | ------ | ----- |
-| **No AI** (sửa quy trình) |                            |            |        |       |
-| **Rule**                  |                            |            |        |       |
-| **Workflow**              |                            |            |        |       |
-| **Agent**                 |                            |            |        |       |
-
-**Mức chọn:**
-
-**Vì sao không chọn mức đơn giản hơn:**
-
+ 
+| Mức | Phương án cho bài của nhóm | Đủ khi nào | Rủi ro | Chọn? |
+| --- | -------------------------- | ---------- | ------ | ----- |
+| **No AI** (sửa quy trình) | Checklist chuẩn theo loại khoản vay, hướng dẫn khách nộp đúng định dạng và đủ giấy tờ, thư mục chuẩn khi tiếp nhận | Thiếu sót chủ yếu do khách không nắm checklist (câu hỏi ở pitch #14); tài liệu phần lớn là file số rõ nét | Nhân viên vẫn mở từng file và đối chiếu Core Banking bằng tay, nên không chạm tới bottleneck chính | **Có, giai đoạn 1** (không đủ khi đứng một mình) |
+| **Rule** | Script kiểm tra danh mục bắt buộc, định dạng file, ngày cấp/hạn; so khớp trường dữ liệu với Core Banking | Dữ liệu đã ở dạng có cấu trúc (nhập sẵn hoặc file số đọc được) | Không đọc được nội dung ảnh/scan CCCD, sao kê, hợp đồng; vẫn phải nhập tay những trường này | **Có, giai đoạn 1** (bước 1 và 3 trong quy trình tương lai) |
+| **Workflow** | Các bước định sẵn bằng code; AI chỉ làm **một bước**: OCR/trích xuất trường từ ảnh/scan, kèm độ tin cậy; con người xác nhận | Tài liệu chủ yếu là ảnh/scan, nhiều loại giấy tờ, Rule một mình không đọc được | OCR sai (nhất là tiếng Việt, ảnh mờ, cắt góc); dữ liệu nhạy cảm; automation bias; chi phí vận hành | **Có, giai đoạn 2**, chỉ khi giai đoạn 1 chưa đủ và vượt các điều kiện ở mục 8 |
+| **Agent** | AI tự quyết bước tiếp theo: tự chọn tài liệu cần xem, tự hỏi khách, tự kết luận hồ sơ | Quy trình không định sẵn được, nhiều nhánh không đoán trước | Vi phạm boundary và yêu cầu tuân thủ; khó kiểm soát trách nhiệm; không có bằng chứng cần thiết | **Không** |
+ 
+**Mức chọn:** Workflow (AI chỉ ở một bước trích xuất, Rule làm phần còn lại, con người quyết định), **triển khai theo giai đoạn**: giai đoạn 1 là No AI + Rule, giai đoạn 2 thêm OCR nếu đo thấy chưa đủ.
+ 
+**Vì sao không chọn mức đơn giản hơn:** No AI và Rule không đọc được nội dung ảnh/scan, nên bước 2 và 3 (bottleneck chính và phụ) vẫn phải mở từng tài liệu bằng tay. Nhóm chọn Workflow cho đích đến chứ không chọn ngay, vì chưa có bằng chứng (CP4 trống) về tỉ lệ hồ sơ ở dạng ảnh/scan và về việc Rule/checklist đã giải được bao nhiêu (assumption #6 ở mục 3.1). Nếu giai đoạn 1 cho thấy Rule giải được khoảng 70–80% trường hợp và đạt metric, nhóm dừng ở Rule và không thêm AI.
+ 
 ### 6.3. AI Canvas rút gọn
-
-| Thành phần                                                        | Nội dung |
-| ----------------------------------------------------------------- | -------- |
-| **Prediction** — AI dự đoán / tạo ra gì?                          |          |
-| **Judgment** — con người cân nhắc, quyết định gì?                 |          |
-| **Action** — hành động cuối cùng là gì, ai làm?                   |          |
-| **Outcome** — đo kết quả bằng gì?                                 |          |
-| **Input** — AI cần dữ liệu đầu vào gì mỗi lần chạy? Có sẵn không? |          |
-| **Feedback** — lấy phản hồi ở đâu để cải thiện?                   |          |
-
+ 
+| Thành phần | Nội dung |
+| ---------- | -------- |
+| **Prediction** — AI dự đoán / tạo ra gì? | Đọc ảnh/scan CCCD, sao kê, hợp đồng và trả về các trường dữ liệu (họ tên, số CCCD, ngày sinh, thu nhập…) kèm độ tin cậy và cờ chất lượng (mờ, cắt góc, sai loại tài liệu). AI **không** dự đoán khả năng vay hay rủi ro tín dụng. |
+| **Judgment** — con người cân nhắc, quyết định gì? | Credit Officer xem tài liệu gốc ở các ô bị cờ hoặc độ tin cậy thấp, quyết định trường nào đúng, ngoại lệ nào chấp nhận, hồ sơ cần bổ sung hay đã đủ để chuyển thẩm định. |
+| **Action** — hành động cuối cùng là gì, ai làm? | Nhân viên xác nhận/sửa dữ liệu, gửi yêu cầu bổ sung gộp một lần cho khách, chuyển hồ sơ sang thẩm định. Hệ thống không tự làm các việc này. |
+| **Outcome** — đo kết quả bằng gì? | Thời gian kiểm tra/hồ sơ (baseline 35–45' → target ≤ 25'), số lượt bổ sung/hồ sơ (→ tối đa 1), tỉ lệ bỏ sót và báo nhầm trên bộ hồ sơ giả lập (mục 7). |
+| **Input** — AI cần dữ liệu đầu vào gì mỗi lần chạy? Có sẵn không? | Ảnh/scan tài liệu của hồ sơ; checklist bắt buộc theo loại khoản vay; dữ liệu Core Banking để so khớp. Hồ sơ có sẵn nhưng là dữ liệu nhạy cảm, nên lab dùng hồ sơ giả lập/khử định danh. **Chưa xác nhận** quyền truy cập Core Banking thật và chính sách cho phép xử lý dữ liệu ngoài hạ tầng tổ chức. |
+| **Feedback** — lấy phản hồi ở đâu để cải thiện? | Log các trường nhân viên sửa so với kết quả AI (theo loại giấy tờ); lý do ngoại lệ; hồ sơ bị trả lại ở bước thẩm định; ý kiến nhân viên về cảnh báo thừa/thiếu. |
+ 
 ### 6.4. Hai câu hỏi của Google PAIR
-
-- Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Bằng chứng:
-- AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? Vì sao, và thiết kế đã xử lý thế nào:
-
+ 
+- Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Bằng chứng: **chưa có từ kiểm chứng**, vì mục 3.2 chưa có phỏng vấn/survey. Thiết kế tạm chọn **augment**, dựa trên suy luận gián tiếp: hồ sơ vay chịu yêu cầu tuân thủ, nhóm đã gạch bỏ ý "AI tự thẩm định và duyệt" ở OST, và câu hỏi phản biện #3 ở pitch nêu vấn đề trách nhiệm khi người sau tin kết quả người trước. Cần xác nhận lại qua phỏng vấn.
+- AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? **Bỏ sót tệ hơn**: một giấy tờ thiếu hoặc sai lệch lọt qua có thể ảnh hưởng chất lượng thẩm định và tuân thủ, còn báo nhầm chỉ tốn thêm vài phút xem lại tài liệu gốc. Thiết kế đã xử lý: đặt ngưỡng cờ thận trọng (nghiêng về báo nhầm), mọi trường độ tin cậy thấp luôn vào HITL, bước 4 xác nhận bắt buộc với mọi hồ sơ, và có guardrail bỏ sót. Đồng thời phải giới hạn báo nhầm, vì cảnh báo thừa quá nhiều sẽ khiến người dùng bỏ qua cảnh báo (alert fatigue).
 ---
 
 ## 7. Problem Statement v1 + tiêu chí đánh giá (CP6)
