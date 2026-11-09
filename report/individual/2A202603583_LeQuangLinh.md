@@ -182,15 +182,21 @@ Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ ch
 
 **6.1. Tôi học được gì khi nghe top 3 problems của các bạn khác?**  
 Thấy nhân viên tín dụng tốn quá nhiều sức vào việc mở file ảnh và soi từng số CCCD.
+
 **6.2. Nhóm có lúc nào bị "solution-first" (nghĩ giải pháp trước khi hiểu vấn đề) không? Lúc đó nhóm nhận ra và xử lý thế nào?**  
 có nhưng đã loại bỏ
+
 **6.3. Tôi có đổi ý sau khi bị phản biện không? Kể một lần cụ thể.**  
 Có, Tú phản biện rằng bài toán benchmarking của tôi tần suất thấp và phạm vi hẹp. Nên tôi đã đổi ý.
+
 **6.4. Kết quả kiểm chứng (phỏng vấn/survey/research) có làm tôi bất ngờ không? Điều gì?**  
 Bất ngờ: 100% người được hỏi từ chối để AI tự quyết.
+
 **6.5. Điều khó nhất khi viết Problem Statement là gì?**  
 Khó nhất là Metric và Boundary.
+
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**  
+
 Nếu làm lại, tôi sẽ ưu tiên dùng OCR chuyên biệt để tối ưu tốc độ, chi phí và tránh bịa đặt thông tin.
 **6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
 1. **Problem:** Cán bộ tín dụng mất 35–45 phút mở file kiểm tra thủ công và đối chiếu Core Banking, khiến xử lý trễ và khách phải bổ sung nhiều đợt.
