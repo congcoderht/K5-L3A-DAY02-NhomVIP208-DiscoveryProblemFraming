@@ -72,7 +72,7 @@ HIỆN TẠI — 75 phút
 | Trường | Nội dung |
 |---|---|
 | Job Story | Khi thẩm định hồ sơ vay vốn, tôi muốn nhanh chóng phát hiện những thông tin không nhất quán giữa các tài liệu và dữ liệu Core Banking, để hạn chế sai sót trong quá trình đánh giá khách hàng và khoản vay. |
-| Actor | Credit Officer chịu trách nhiệm kiểm tra, đối chiếu và xác minh thông tin khách hàng.  |
+| Actor | Credit Officer chịu trách nhiệm kiểm tra, đối chiếu và xác minh thông tin khách hàng. |
 | Thời điểm / bối cảnh | Sau khi hồ sơ đã được kiểm tra tính đầy đủ, trước khi nhân viên thực hiện đánh giá tài chính và lập báo cáo thẩm định. |
 | Quy trình hiện tại (3–7 bước) | 1. Mở đơn đề nghị vay vốn · 2. Kiểm tra thông tin CCCD · 3. Mở sao kê lương và hợp đồng lao động · 4. Truy cập Core Banking để kiểm tra thông tin khách hàng · 5. Đối chiếu họ tên, số CCCD, ngày sinh, thu nhập và thông tin khoản vay · 6. Ghi nhận các điểm không khớp · 7. Xác minh lại thông tin với khách hàng hoặc bộ phận liên quan. |
 | Bottleneck (bước nào, mất bao nhiêu phút) | Bước 5: Phải đối chiếu thủ công giữa nhiều tài liệu và hệ thống khác nhau. Những sai lệch nhỏ có thể bị bỏ sót khi số lượng hồ sơ lớn. |
