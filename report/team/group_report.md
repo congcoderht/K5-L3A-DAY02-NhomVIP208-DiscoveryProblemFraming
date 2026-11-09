@@ -321,29 +321,33 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 
 | Trường                                          | Nội dung                        |
 | ----------------------------------------------- | ------------------------------- |
-| **Actor**                                       |                                 |
-| **Quy trình**                                   |                                 |
-| **Bottleneck**                                  |                                 |
-| **Impact**                                      |                                 |
-| **Success Metric** (baseline → target, cách đo) |                                 |
-| **Boundary**                                    |                                 |
-| **AI intervention point**                       |                                 |
-| **Mức chọn**                                    | No AI / Rule / Workflow / Agent |
-| **Rủi ro & người kiểm tra**                     |                                 |
+| **Actor**                                       |Nhân viên tiếp nhận / Credit Officer phụ trách rà soát sơ bộ hồ sơ vay vốn cá nhân. Khách hàng vay vốn là đối tượng thụ hưởng gián tiếp (giảm số lần bị đòi bổ sung giấy tờ).                                 |
+| **Quy trình**                                   |Quy trình tiếp nhận & sơ duyệt (5 bước): Tiếp nhận & kiểm tra định dạng file (Rule) $\rightarrow$ OCR/Trích xuất trường dữ liệu từ ảnh/scan (AI) $\rightarrow$ Kiểm tra danh mục checklist & đối chiếu chéo số liệu với Core Banking (Rule) $\rightarrow$ Cán bộ tín dụng rà soát cảnh báo, đối chiếu tài liệu gốc và xác nhận (HITL) $\rightarrow$ Xuất biên bản tiếp nhận/yêu cầu bổ sung gộp 1 lần hoặc chuyển thẩm định.                                 |
+| **Bottleneck**                                  |Thao tác mở từng file ảnh/scan để đọc và gõ lại thông tin; đối chiếu thủ công từng trường dữ liệu giữa hồ sơ và Core Banking; phát hiện sai sót rải rác qua nhiều lượt dẫn đến lặp lại quy trình.                                 |
+| **Impact**                                      |Tốn trung bình 35–45 phút/hồ sơ; khách hàng bị phiền hà do phải bổ sung hồ sơ nhiều lần (1–3 đợt); rủi ro bỏ sót sai lệch thông tin ảnh hưởng trực tiếp đến chất lượng thẩm định và tuân thủ rủi ro tín dụng.                                 |
+| **Success Metric** (baseline → target, cách đo) |- Metric chính (Thời gian): Giảm thời gian kiểm tra sơ bộ từ 35–45 phút (baseline ước tính) xuống $\le$ 20–25 phút/hồ sơ (target kỳ vọng giảm ~50%). Đo bằng cách bấm giờ thực hiện trên bộ 10 hồ sơ mẫu giả lập (cùng 1 nhân sự test trước và sau). <br>- Metric phụ (Lần lặp): Số lượt yêu cầu khách hàng bổ sung giấy tờ giảm xuống tối đa 1 lượt duy nhất/hồ sơ. <br>- Guardrail metric: Tỉ lệ bỏ sót sai lệch/thiếu sót (False Negative) trên bộ test gài lỗi $\le$ phương pháp thủ công hiện tại (mục tiêu 0% bỏ sót sai lệch chí mạng về danh tính và nguồn thu).                                |
+| **Boundary**                                    |- AI/Rule tuyệt đối không: tự động duyệt/từ chối khoản vay, không xếp hạng điểm tín dụng, không tự sửa dữ liệu trên Core Banking, không tự động gửi email/tin nhắn yêu cầu khách bổ sung khi chưa có nhân viên duyệt, không tự động xóa/loại bỏ hồ sơ bị lỗi mờ. <br>- Con người bắt buộc kiểm tra (HITL): Mọi cờ cảnh báo bất thường, các trường dữ liệu có điểm tin cậy (confidence score) thấp hơn ngưỡng quy định, và ký xác nhận chuyển bước. Không đưa dữ liệu thật lên dịch vụ đám mây công cộng bên ngoài.                                 |
+| **AI intervention point**                       |Can thiệp duy nhất tại Bước 2: Đọc và bóc tách các trường thực thể có cấu trúc (Họ tên, CCCD/CMND, Ngày sinh, Địa chỉ, Thu nhập, Ngày cấp...) từ các file tài liệu scan/ảnh (CCCD, hợp đồng lao động, sao kê tài khoản ngân hàng), đồng thời gắn nhãn chất lượng ảnh (đủ sáng, mờ, mất góc).                                 |
+| **Mức chọn**                                    | Workflow (Phối hợp đa tầng: Triển khai Giai đoạn 1 gồm No AI + Rule; Giai đoạn 2 tích hợp AI OCR trích xuất trường dữ liệu trong workflow có con người kiểm soát - HITL). |
+| **Rủi ro & người kiểm tra**                     |- Rủi ro: AI trích xuất sai số liệu tiếng Việt/ảnh mờ; Cán bộ tín dụng bị phụ thuộc/chủ quan duyệt vội (automation bias); Báo nhầm quá nhiều gây mệt mỏi (alert fatigue); Rò rỉ thông tin cá nhân. <br>- Người kiểm tra: Credit Officer trực tiếp phụ trách hồ sơ (kiểm tra hàng ngày); Trưởng bộ phận thẩm định/kiểm soát chất lượng (hậu kiểm ngẫu nhiên định kỳ 10% hồ sơ).                                 |
 
 **Thay đổi so với v0 và lý do:**
 
 | Trường | v0  | v1  | Vì sao đổi |
 | ------ | --- | --- | ---------- |
-|        |     |     |            |
+|AI intervention point|Chưa định vị rõ ràng vị trí đứng của mô hình trong luồng hệ thống.|Xác định cụ thể duy nhất ở Bước 2 (chỉ làm nhiệm vụ OCR/trích xuất thực thể từ ảnh/scan tài liệu).|Tránh bẫy giải pháp "AI làm tất cả", làm rõ ranh giới kỹ thuật giữa Rule Engine (đối chiếu logic, checklist) và AI (thị giác máy tính/NLP trích xuất văn bản).|
+|Boundary & HITL|Đặt ranh giới chung chung là "không tự duyệt vay, con người kiểm tra cảnh báo".|Cụ thể hóa cơ chế HITL: bắt buộc duyệt từng trường có điểm tin cậy (confidence) thấp; cấm hoàn toàn tính năng "xác nhận hàng loạt" (bulk approve) để chống duyệt qua loa; cấm tự động gửi mail/tin nhắn cho khách.|Khắc phục trực tiếp lỗ hổng phản biện số 1 và số 4: ngăn chặn triệt để tâm lý chủ quan (automation bias) và bảo đảm tính chịu trách nhiệm cá nhân trong nghiệp vụ ngân hàng.|
+|Mức chọn|Chỉ ghi nhận chọn mức can thiệp là Workflow.|Bổ sung chiến lược triển khai theo 2 giai đoạn: Giai đoạn 1 làm No AI (chuẩn hóa checklist) + Rule; Giai đoạn 2 mới gắn AI OCR vào luồng.|Giảm thiểu rủi ro đầu tư lãng phí; nếu bước 1 giải quyết được phần lớn rắc rối do khách nộp sai mà không tốn chi phí AI thì giữ nguyên, chỉ nâng cấp khi dữ liệu scan/ảnh thực sự là điểm nghẽn lớn.|
+|Success Metric|Mục tiêu thời gian ghi khoảng 15–25 phút chung chung.|Khóa mục tiêu chính xác ở $\le$ 20–25 phút/hồ sơ (tương thích đúng Outcome giảm 50% ở cây OST mục 2.3); bổ sung Guardrail metric chi tiết về tỷ lệ bỏ sót sai lệch danh tính/thu nhập.|Đảm bảo tính nhất quán số liệu xuyên suốt toàn bộ báo cáo từ mục 2.3 sang mục 5 và mục 7.|
 
 **Tiêu chí đánh giá đầu ra của AI (3–5 tiêu chí):**
 
 |   # | Tiêu chí | Đạt khi | Không đạt khi |
 | --: | -------- | ------- | ------------- |
-|   1 |          |         |               |
-|   2 |          |         |               |
-|   3 |          |         |               |
+|   1 |Độ chính xác trích xuất thực thể quan trọng (Field-level Accuracy)|Trích xuất chính xác $\ge 98\%$ trên các trường cốt lõi (Số CCCD, Họ tên, Ngày cấp/hết hạn, Số tài khoản, Thu nhập ròng từng tháng) đối với tài liệu đạt chuẩn chất lượng scan/ảnh rõ nét.|Nhận diện sai ký tự số CCCD, đọc nhầm số tiền lương (sai dấu chấm/phẩy), hoặc làm biến dạng họ tên tiếng Việt có dấu.|
+|   2 |Khả năng nhận diện chất lượng tài liệu đầu vào (Quality Pre-check)|Cảnh báo đúng $\ge 95\%$ các trường hợp ảnh mờ, chói lóa, mất 4 góc, nghiêng lệch quá $15^\circ$ hoặc tải sai danh mục (ví dụ: tải ảnh bằng lái xe vào ô CCCD).|Bỏ qua ảnh chụp không thể đọc được nội dung hoặc báo lỗi sai trên tài liệu scan rõ ràng, hợp lệ.|
+|   3 |Độ tin cậy của chỉ số tin cậy (Confidence Calibration)|Mô hình gán điểm tin cậy (Confidence score) thấp ($< 0.85$) chính xác vào các ký tự/vùng ảnh bị mờ, đè chữ, chữ viết tay hoặc chữ ký để đẩy sang hàng đợi HITL.|Tự tin gán nhãn điểm cao ($\ge 0.95$) cho một trường dữ liệu bị đọc sai lệch ký tự thực tế (False High-Confidence).|
+|   4 |Định dạng cấu trúc dữ liệu đầu ra (Schema Conformance)|$100\%$ kết quả trả về đúng định dạng JSON/Schema chuẩn mực theo quy định (ngày tháng theo chuẩn YYYY-MM-DD, số tiền dạng số nguyên chuẩn hóa, loại bỏ ký tự rác).|JSON sai định dạng, gán sai kiểu dữ liệu (chuỗi text lẫn vào trường số tiền) làm sập Rule Engine đối chiếu ở bước kế tiếp.|
 
 ---
 
