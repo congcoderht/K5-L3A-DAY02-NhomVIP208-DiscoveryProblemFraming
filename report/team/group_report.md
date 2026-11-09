@@ -248,19 +248,30 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 ---
 
 ## 5. Problem Statement v0 (CP5)
-
-| Trường                                                                     | Nội dung |
-| -------------------------------------------------------------------------- | -------- |
-| **Actor**                                                                  |          |
-| **Quy trình**                                                              |          |
-| **Bottleneck**                                                             |          |
-| **Impact**                                                                 |          |
-| **Success Metric** (baseline → target, cách đo)                            |          |
-| **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) |          |
-
-Phản biện nhận được (từ AI hoặc nhóm khác) và nhóm có đồng ý không:
-
-- ***
+ 
+| Trường | Nội dung |
+| ------ | -------- |
+| **Actor** | Nhân viên tiếp nhận / Credit Officer xử lý hồ sơ vay vốn cá nhân. Khách hàng vay vốn là bên chịu ảnh hưởng khi bị yêu cầu bổ sung nhiều lần. |
+| **Quy trình** | Từ lúc nhận bộ hồ sơ của khách đến lúc chuyển sang thẩm định: mở từng tài liệu, đối chiếu checklist đủ/thiếu/hợp lệ, đối chiếu thông tin giữa tài liệu và Core Banking, liên hệ khách bổ sung rồi kiểm tra lại. |
+| **Bottleneck** | Kiểm tra thủ công từng file (khoảng 10–20 phút/hồ sơ) và đối chiếu thủ công giữa tài liệu với Core Banking (khoảng 10–20 phút/hồ sơ). Thiếu sót được phát hiện rải rác qua nhiều lần kiểm tra nên hồ sơ phải quay lại bước trước, sai lệch nhỏ dễ bị bỏ sót. |
+| **Impact** | Mỗi hồ sơ tốn khoảng 35–45 phút kiểm tra (chưa tính thời gian chờ khách bổ sung); khách bị yêu cầu bổ sung 1 hoặc nhiều lần; sai lệch bị bỏ sót có thể ảnh hưởng chất lượng thẩm định. Các số liệu này là **ước tính từ pitch (CP3), chưa được kiểm chứng ở CP4**. |
+| **Success Metric** (baseline → target, cách đo) | **Chính:** thời gian kiểm tra sơ bộ/hồ sơ, baseline 35–45' (ước tính) → target ≤ 25' (kỳ vọng 15–25'; mức 20' tương ứng outcome giảm 50% ở OST). Cách đo: bấm giờ 5–10 hồ sơ giả lập/đã ẩn danh, trước và sau, cùng một người thực hiện. **Phụ:** số lượt yêu cầu bổ sung/hồ sơ, baseline chưa có (đếm trên 5–10 hồ sơ gần nhất hoặc hồ sơ giả lập) → giảm xuống tối đa 1 lượt. **Guardrail:** tỉ lệ bỏ sót thiếu/sai lệch trên bộ hồ sơ đã gài lỗi sẵn không cao hơn cách làm thủ công hiện tại. |
+| **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | AI/Rule **không** kết luận hồ sơ đủ điều kiện vay, không xếp hạng rủi ro, không đề xuất hay phê duyệt/từ chối khoản vay; không tự sửa dữ liệu Core Banking; không tự gửi yêu cầu cho khách hàng; không tự loại hồ sơ khi file không đọc được. Con người **luôn** kiểm tra: mọi cảnh báo thiếu/sai lệch, mọi trường độ tin cậy thấp hoặc thiếu, và xác nhận hồ sơ trước khi chuyển thẩm định. Dữ liệu thật không được đưa lên dịch vụ ngoài khi chưa có xác nhận của người có thẩm quyền; lab chỉ dùng dữ liệu giả lập/khử định danh. |
+ 
+**Phản biện nhận được và nhóm có đồng ý không:**
+ 
+ 
+| # | Câu hỏi / lỗ hổng (từ AI) | Nhóm trả lời / điều chỉnh | Đồng ý? |
+| -: | ------------------------- | ------------------------- | ------- |
+| 1 | Nhân viên có kiểm tra tài liệu gốc hay chỉ bấm xác nhận cảnh báo? | Hiển thị cảnh báo cạnh trang tài liệu và đánh dấu vị trí cần kiểm tra. Với cảnh báo quan trọng, nhân viên phải xác nhận từng mục và ghi lý do xử lý, không cho xác nhận hàng loạt. Kiểm tra mẫu định kỳ để phát hiện việc duyệt qua loa; thiết kế không thể bảo đảm tuyệt đối nhân viên luôn đọc kỹ. | ☑ Đồng ý |
+| 2 | Bổ sung nhiều lần do khách không biết cần nộp gì hay nhân viên phát hiện thiếu muộn? | Bổ sung checklist cho khách ngay khi tạo hồ sơ; hệ thống kiểm tra sơ bộ lúc tải lên và nhân viên rà soát trước khi chuyển thẩm định. Các yêu cầu bổ sung phát hiện được trong lượt kiểm tra được tổng hợp thành một danh sách gửi khách sau khi nhân viên xác nhận. | ☑ Đồng ý |
+| 3 | Ảnh mờ, cắt góc, sai định dạng được xử lý ở đâu? | Kiểm tra chất lượng ngay lúc khách tải tài liệu lên. Nếu ảnh không đọc được hoặc thiếu phần cần thiết, thông báo rõ lỗi và yêu cầu chụp lại tại bước đó. Trường hợp không xác định được chuyển nhân viên kiểm tra; nhân viên xác nhận yêu cầu bổ sung trước khi gửi khách. | ☑ Đồng ý |
+| 4 | Ai chịu trách nhiệm khi hệ thống bỏ sót? Kết quả kiểm tra có được công nhận không? | Không có cảnh báo không đồng nghĩa hồ sơ đạt. Nhân viên vẫn kiểm tra các mục bắt buộc và quyết định trong phạm vi thẩm quyền. Nhóm chưa có căn cứ kết luận trách nhiệm pháp lý hoặc giá trị chứng từ của kết quả máy; cần bộ phận nghiệp vụ, pháp chế và tuân thủ xác nhận trước triển khai thật. Trước mắt chỉ thử nghiệm hỗ trợ, không thay thế bước kiểm soát hiện hành. | ☑ Đồng ý |
+| 5 | Ai định nghĩa “hợp lệ” và cập nhật checklist? | Đổi “hợp lệ” thành “đủ và khớp theo checklist phiên bản đang áp dụng”, không đồng nghĩa đủ điều kiện cho vay. Đề xuất bộ phận nghiệp vụ quản lý nội dung, bộ phận có thẩm quyền phê duyệt và bộ phận kỹ thuật triển khai. Mỗi checklist phải có phiên bản, ngày hiệu lực và người duyệt; lưu phiên bản đã dùng cho từng lượt kiểm tra. Nếu chưa xác định được checklist áp dụng thì chuyển xử lý thủ công. | ☑ Đồng ý |
+| 6 | Giấy tờ giả hoặc chỉnh sửa có thuộc phạm vi không? | Phát hiện giả mạo chưa thuộc phạm vi phiên bản đầu. OCR đọc đúng và các trường khớp nhau không chứng minh giấy tờ thật. Giữ bước xác minh danh tính, nguồn chứng từ và kiểm soát gian lận theo quy trình của đơn vị; cần xác nhận cụ thể các bước này trước khi thử nghiệm thực tế. Trường hợp nghi ngờ chuyển người có thẩm quyền xử lý. | ☑ Đồng ý |
+| 7 | Độ chính xác OCR và ngưỡng tin cậy được đánh giá thế nào? | Đánh giá OCR theo từng loại tài liệu và từng trường thông tin, ưu tiên các trường quan trọng như số CCCD, họ tên và số tiền. Điểm tin cậy chỉ dùng để hỗ trợ phân luồng; trường khó đọc hoặc có mâu thuẫn phải được nhân viên đối chiếu bản gốc. Bộ phận nghiệp vụ phối hợp với nhóm kỹ thuật quyết định ngưỡng chấp nhận dựa trên kết quả đánh giá và mức độ rủi ro. | ☑ Đồng ý |
+| 8 | Lấy dữ liệu Core Banking thế nào, so bằng khóa nào và nguồn nào là chuẩn? | Đề xuất lấy dữ liệu qua API được ngân hàng cấp quyền hoặc file xuất theo mẫu thống nhất; ghép bằng mã hồ sơ liên kết với mã khách hàng, không chỉ dựa vào họ tên. Bộ phận nghiệp vụ xác định nguồn chuẩn cho từng trường và thời điểm cập nhật. Khi có chênh lệch, hệ thống đánh dấu để nhân viên xác minh, không tự ghi đè hoặc mặc định dữ liệu Core Banking luôn đúng. | ☑ Đồng ý |
+| 9 | Dữ liệu được lưu ở đâu, ai được xem và truy vết thế nào? | Thiết kế lưu và xử lý dữ liệu trong môi trường được ngân hàng phê duyệt, phân quyền theo vai trò và hồ sơ được giao. Nhật ký ghi phiên bản tài liệu, mô hình và checklist, kết quả trích xuất, cảnh báo, người sửa hoặc duyệt, thời điểm và lý do. Hạn chế đưa dữ liệu nhạy cảm vào log; quy định thời hạn lưu, quyền truy cập và cách xóa dữ liệu. | ☑ Đồng ý |
 
 ## 6. Mức can thiệp AI (CP6)
 
