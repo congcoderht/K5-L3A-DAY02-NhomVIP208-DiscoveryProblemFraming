@@ -7,8 +7,8 @@
 
 - Tên nhóm: NhomVIP208
 - Thành viên: xem `TEAM.md`
-- Candidate problem được chọn (1 câu):
-- Quyết định cuối: Go / Not Yet / No-Go
+- Candidate problem được chọn (1 câu): Nhân viên khó phát hiện sớm giấy tờ còn thiếu, tài liệu không đọc được hoặc sai lệch cần xác minh trước khi chuyển hồ sơ vay cá nhân sang thẩm định.
+- Quyết định cuối: Not Yet — cần kiểm chứng nhu cầu, quy trình và điều kiện dữ liệu trước khi thử nghiệm OCR.
 
 ---
 
@@ -50,7 +50,7 @@ Nhóm có 15 candidate, gom thành 4 cụm dựa trên pattern bản chất côn
 Gốc là **1 outcome**. Nhánh là **opportunity** (nhu cầu, pain), không phải tính năng hay công cụ.
 
 ```text
-OUTCOME: Rút ngắn 50% thời gian tiếp nhận và sơ duyệt một bộ hồ sơ vay vốn cá nhân mà vẫn đảm bảo tính tuân thủ và chính xác
+OUTCOME: Giảm thời gian tiếp nhận và sơ duyệt hồ sơ vay vốn cá nhân mà vẫn đảm bảo tính tuân thủ và chính xác
 ├── Opportunity A1: Cán bộ tín dụng mất nhiều thời gian mở từng file để rà soát đủ/thiếu danh mục giấy tờ
 ├── Opportunity A2: Tốn nhiều thời gian đối chiếu chéo số liệu giữa tài liệu giấy/ảnh (CCCD, sao kê, hợp đồng) với hệ thống Core Banking
 └── Opportunity A3: Khách hàng thường xuyên bị yêu cầu bổ sung giấy tờ nhiều lần do nhân viên phát hiện thiếu sót rải rác
@@ -58,7 +58,7 @@ OUTCOME: Rút ngắn 50% thời gian tiếp nhận và sơ duyệt một bộ h�
 
 Những ý đã gạch bỏ vì là solution đội lốt opportunity:
 
-- ✗ "Dùng OCR và AI Agent tự động thẩm định và duyệt hồ sơ vay" (Đây là solution công nghệ, vi phạm quy định tuân thủ ngân hàng)
+- ✗ "Dùng OCR và AI Agent tự động thẩm định và duyệt hồ sơ vay" (Đây là giải pháp nằm ngoài phạm vi bài toán kiểm tra hồ sơ; quyết định tín dụng phải do người có thẩm quyền theo quy trình của tổ chức. Yêu cầu pháp lý/tuân thủ cụ thể cần được bộ phận có thẩm quyền xác nhận.)
 - ✗ "Xây dựng cổng portal/chatbot cho khách hàng tra cứu trạng thái hồ sơ" (Đây là solution tính năng phần mềm)
 - ✗ "Tự động gửi email đòi khách bổ sung giấy tờ" (Đây là feature/automation cụ thể)
 
@@ -68,7 +68,7 @@ Nhóm chọn 3 candidate đại diện nổi bật nhất từ 15 bài toán:
 
 | Candidate | Actor rõ | Quy trình rõ | Pain có bằng chứng | Impact đo được | Vừa sức lab | So sánh được No AI/Rule/Workflow/Agent | Nhóm hiểu domain | Tổng |
 | --------- | -------: | -----------: | -----------------: | -------------: | ----------: | -------------------------------------: | ---------------: | ---: |
-| **Kiểm tra tính đầy đủ và nhất quán hồ sơ vay (#7 & #8)** | 5 | 5 | 5 | 5 | 4 | 5 | 5 | **34** |
+| **Kiểm tra tính đầy đủ và nhất quán hồ sơ vay (#7 & #8)** | 5 | 5 | 4 | 4 | 4 | 5 | 5 | **32** |
 | Bóc tách tài liệu kỹ thuật & đối thủ (#4) | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 28 |
 | Tự động tạo dự thảo báo cáo thẩm định (#9) | 4 | 3 | 4 | 4 | 2 | 4 | 3 | 24 |
 
@@ -77,8 +77,8 @@ Nhóm chọn 3 candidate đại diện nổi bật nhất từ 15 bài toán:
 **Vì sao chọn:** 
 - Đây là "nỗi đau" lớn nhất trong nhóm, được 4/5 thành viên cùng đưa ra trong buổi pitch với cùng một pattern.
 - Quy trình rõ ràng: hồ sơ vay vốn cá nhân luôn có bộ danh mục chuẩn (Checklist: Pháp lý, Nguồn thu, Tài sản bảo đảm).
-- Đo lường được ngay: hiện tại mất trung bình 35–45 phút/bộ hồ sơ, hay bị trả về hoặc yêu cầu bổ sung nhiều lần.
-- Hoàn toàn khả thi để so sánh rõ nét giữa 4 mức giải pháp: No AI (Checklist giấy) vs Rule (Script đối chiếu cứng) vs Workflow (Trích xuất OCR + đối chiếu thực thể + người duyệt) vs Agent (Tự động duyệt vay).
+- Survey CP4 (N=8) cho thấy 7/8 người gặp công đoạn đối chiếu thủ công lâu nhất; thời gian tiếp nhận được chọn nhiều nhất là 30–45 phút (4/8), không phải giá trị trung bình. 7/8 người cho biết 3–5 trong 10 hồ sơ gần nhất cần bổ sung từ 2 lần trở lên.
+- Có thể dùng candidate này để so sánh các mức can thiệp No AI, Rule, Workflow và Agent; khảo sát hiện chỉ xác nhận pain, chưa chứng minh mức giải pháp nào hiệu quả.
 
 **Vì sao loại các candidate còn lại:**
 - *Bóc tách tài liệu kỹ thuật (#4):* Pain có thật nhưng chỉ phục vụ cá nhân/bộ phận hẹp, không phải là pain tập trung của đa số thành viên nhóm.
@@ -94,50 +94,41 @@ Nhóm chọn 3 candidate đại diện nổi bật nhất từ 15 bài toán:
 
 | # | Giả định | Loại | Quan trọng (1–5) | Đã có bằng chứng (1–5) | Kiểm chứng trước? |
 |--:|---|---|---:|---:|---|
-| 1 | Hồ sơ thường thiếu hoặc không nhất quán giấy tờ/thông tin đến mức gây thêm việc cho người tiếp nhận. | Value | 5 | 1 | Có — hỏi về các trường hợp gần đây và tần suất. |
-| 2 | Thiếu sót thường chỉ được phát hiện sau lần kiểm tra đầu, dẫn đến liên hệ bổ sung hoặc hồ sơ phải quay lại bước trước. | Value | 5 | 1 | Có — lần gần nhất, số lượt bổ sung và hệ quả. |
-| 3 | Checklist theo loại hồ sơ có thể giúp phát hiện thiếu giấy tờ sớm mà không làm bỏ qua điểm kiểm soát. | Usability | 4 | 1 | Sau — hỏi nhân viên đang dùng checklist nào và ngoại lệ nào checklist chưa bao quát. |
-| 4 | Thông tin cần đối chiếu giữa tài liệu và Core Banking có thể được xác định rõ theo quy tắc nghiệp vụ. | Feasibility | 4 | 1 | Sau — hỏi trường dữ liệu, nguồn chuẩn và cách xử lý khi nguồn không khớp. |
+| 1 | Hồ sơ thường thiếu hoặc không nhất quán giấy tờ/thông tin đến mức gây thêm việc cho người tiếp nhận. | Value | 5 | 4 | Survey: 6/8 nêu thiếu phụ lục/sao kê hoặc thông tin không khớp là nguyên nhân gửi lại; mẫu nhỏ, tự báo cáo. |
+| 2 | Thiếu sót thường chỉ được phát hiện sau lần kiểm tra đầu, dẫn đến liên hệ bổ sung hoặc hồ sơ phải quay lại bước trước. | Value | 5 | 3 | 5/8 hồ sơ gần nhất cần bổ sung từ 2 lượt trở lên; khảo sát chưa xác nhận chính xác thời điểm phát hiện. |
+| 3 | Checklist theo loại hồ sơ có thể giúp phát hiện thiếu giấy tờ sớm mà không làm bỏ qua điểm kiểm soát. | Usability | 4 | 2 | Survey cho thấy 5/8 dùng bảng theo dõi riêng và 3/8 đối chiếu bằng mắt; chưa thử hiệu quả checklist. |
+| 4 | Thông tin cần đối chiếu giữa tài liệu và Core Banking có thể được xác định rõ theo quy tắc nghiệp vụ. | Feasibility | 4 | 2 | 7/8 nêu đối chiếu tài liệu với Core Banking là công đoạn tốn thời gian; bộ quy tắc và nguồn chuẩn chưa được xác minh. |
 | 5 | Dữ liệu hồ sơ có thể được xử lý trong công cụ được tổ chức cho phép mà vẫn đáp ứng yêu cầu bảo mật và tuân thủ. | Viability | 5 | 1 | Sau — cần xác nhận chính sách với người có thẩm quyền; không tải dữ liệu thật lên dịch vụ ngoài. |
-| 6 | Checklist, quy tắc hoặc chức năng sẵn có có thể giảm vấn đề mà chưa cần AI. | Feasibility / Value | 4 | 1 | Có — hỏi về workaround và chức năng đang dùng. |
+| 6 | Checklist, quy tắc hoặc chức năng sẵn có có thể giảm vấn đề mà chưa cần AI. | Feasibility / Value | 4 | 2 | 5/8 dùng Excel/Google Sheets, 3/8 kiểm tra thủ công; khảo sát chưa đo hiệu quả của các cách này. Cần thử trên bộ hồ sơ mẫu. |
 
-Giả định ưu tiên kiểm chứng: #1 và #2 (pain/tần suất/tác động) cùng #6 (giải pháp hiện có). Các pitch và mức độ đồng thuận trong nhóm là tín hiệu ban đầu, chưa thay thế bằng chứng từ người trực tiếp làm nghiệp vụ. Điểm bằng chứng hiện chấm thấp vì báo cáo chưa ghi nhận phỏng vấn, survey hoặc log độc lập; cập nhật sau khi thu thập dữ liệu.
+Survey (N=8) cho tín hiệu về #1–#2 và xác nhận đối chiếu thủ công là bottleneck được nêu nhiều nhất. Không có log đối chiếu; thời gian theo khoảng tự báo cáo. Cần hỏi sâu thời điểm phát hiện thiếu sót, kiểm tra hiệu quả checklist/Rule; #4–#5 (nguồn chuẩn và chính sách dữ liệu) vẫn chưa được xác minh.
 
 ### 3.2. Kiểm chứng
 
-**Trạng thái:** Chưa ghi nhận kết quả phỏng vấn/survey/log trong tài liệu. Nhóm cần thực hiện phỏng vấn 2–3 nhân viên từng tiếp nhận hoặc thẩm định hồ sơ; nếu không tiếp cận được, khảo sát 5–10 người có trải nghiệm phù hợp. Không phỏng vấn thành viên nhóm thay cho người dùng quy trình.
+**Phương pháp:** Nhóm thu thập **8 câu trả lời** qua biểu mẫu khảo sát. Các câu hỏi tập trung vào thời gian tiếp nhận hồ sơ, công đoạn tốn thời gian nhất, số hồ sơ phải yêu cầu bổ sung nhiều lần, cách kiểm tra hiện tại, số lượt bổ sung ở hồ sơ gần nhất, nguyên nhân gửi lại và trải nghiệm gây phiền nhất. Thời gian là nhóm lựa chọn theo khoảng tự báo cáo, không phải số đo từ log.
 
-**Câu hỏi phỏng vấn gợi ý (hỏi về lần đã xảy ra, không hỏi về ý tưởng AI):**
+**Kết quả survey (N = 8):**
 
-1. Lần gần nhất hồ sơ bị yêu cầu bổ sung là khi nào? Thiếu hoặc cần làm rõ nội dung gì?
-2. Ở bước nào phát hiện thiếu sót? Hồ sơ đã được kiểm tra trước đó chưa?
-3. Sau khi phát hiện, chuyện gì xảy ra tiếp theo? Có phải liên hệ lại hoặc chuyển hồ sơ về bước trước không?
-4. Trường hợp đó làm tăng thêm bao nhiêu lượt trao đổi hoặc thời gian chờ? Anh/chị ước lượng dựa trên hồ sơ nào/kỳ nào?
-5. Anh/chị hiện dùng checklist, quy tắc hoặc chức năng nào để kiểm tra? Cách đó còn vướng ở đâu?
-6. Có trường hợp nào checklist phát hiện đủ ngay lần đầu, hoặc việc bổ sung không làm chậm đáng kể không? (tín hiệu phản bác)
+| Chỉ số | Kết quả |
+|---|---|
+| Thời gian tiếp nhận một hồ sơ | 4/8 chọn 30–45 phút; 3/8 chọn 15–30 phút; 1/8 chọn dưới 15 phút. 30–45 phút là khoảng được chọn nhiều nhất, không phải giá trị trung bình. |
+| Công đoạn tốn nhiều thời gian nhất | 7/8 chọn đối chiếu số liệu giữa tài liệu giấy/ảnh với Core Banking; 1/8 chọn mở từng file để kiểm tra checklist. |
+| Số hồ sơ trong 10 hồ sơ gần nhất cần yêu cầu bổ sung từ 2 lần trở lên | 7/8 chọn 3–5 hồ sơ; 1/8 chọn 0–2 hồ sơ. |
+| Số lượt bổ sung ở hồ sơ gần nhất | 3/8 trả lời 1 lần; 4/8 trả lời 2–3 lần; 1/8 trả lời hơn 4 lần. |
+| Lý do chính phải gửi lại/bổ sung | 3/8 nêu thông tin không khớp giữa giấy tờ; 3/8 thiếu trang phụ lục/sao kê; 1/8 ảnh mờ/lóa/mất góc; 1/8 danh mục giấy tờ ban đầu chưa rõ. |
+| Cách kiểm tra hiện tại | 5/8 dùng Excel/Google Sheets theo dõi riêng; 3/8 nhìn màn hình và đối chiếu thủ công bằng mắt/nhớ. |
+| Trải nghiệm gây phiền hoặc tốn thời gian nhất | 5/8 chọn chờ lâu mới biết hồ sơ hợp lệ hay chưa; 2/8 chọn phải chụp và gửi lại nhiều lần; 1/8 chọn khâu chuẩn bị giấy tờ phức tạp. |
 
-Không ghi tên khách hàng, mã hồ sơ, số giấy tờ, thông tin tài chính hay dữ liệu nội bộ nhạy cảm vào báo cáo.
-
-Interview snapshot (mỗi buổi phỏng vấn một bảng, hoặc đặt file trong `report/assets/cp4-interview-snapshot-N.md`):
-
-| Trường                                            | Nội dung |
-| ------------------------------------------------- | -------- |
-| Người được hỏi (vai trò, không ghi tên thật)      | Chờ phỏng vấn; điền vai trò sau khi thực hiện. |
-| Câu nói đáng nhớ nhất (nguyên văn)                | Chưa có dữ liệu. |
-| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | Chưa có dữ liệu. |
-| Hiện đang xử lý bằng cách nào (workaround)?       | Chưa có dữ liệu. |
-| Mất bao lâu, bao lần?                             | Chưa có dữ liệu; hỏi về một trường hợp cụ thể. |
-| Insight / opportunity rút ra                      | Chưa kết luận; cập nhật sau phỏng vấn. |
+Các câu trả lời cho thấy bottleneck nổi bật trong mẫu là đối chiếu thủ công giữa nhiều nguồn. Số liệu là tự báo cáo từ 8 người; chưa có log để xác nhận thời gian thực tế hoặc đại diện cho toàn bộ người xử lý hồ sơ.
 
 Tổng hợp:
 
-| Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác |
+| Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác / giới hạn |
 |---|---:|---|---|
-| Phỏng vấn nhân viên tiếp nhận/thẩm định hoặc survey người có trải nghiệm | Chưa thực hiện; mục tiêu 2–3 phỏng vấn hoặc 5–10 phản hồi survey | Chưa có dữ liệu; điền sau khi thu thập | Chưa có dữ liệu; ghi cả trường hợp ít/không gặp vấn đề |
-| Log/timestamp/checklist đã ẩn danh và được phép sử dụng (nếu có) | Chưa tiếp cận | Chưa có dữ liệu | Chưa có dữ liệu |
+| Micro survey người có trải nghiệm | 8 | 7/8 nêu đối chiếu tài liệu với Core Banking là công đoạn tốn thời gian nhất; 7/8 cho biết 3–5 trong 10 hồ sơ gần nhất phải bổ sung từ 2 lần trở lên. | 1/8 cho biết chỉ 0–2 trong 10 hồ sơ cần bổ sung từ 2 lần trở lên; khảo sát không đo log và mẫu nhỏ. |
+| Log/timestamp/checklist thực tế | Không sử dụng | Chưa có dữ liệu đối chiếu | Chưa có dữ liệu đối chiếu |
 
-**Nhóm đã sửa problem thế nào sau kiểm chứng:** Chưa thể kết luận trước khi phỏng vấn/survey hoặc xem dữ liệu được phép. Sau khi có kết quả, ghi điều chỉnh actor, bước nghẽn, phạm vi hồ sơ và metric; nếu bằng chứng yếu thì thu hẹp hoặc đổi candidate.
-
+**Nhóm đã sửa problem thế nào sau kiểm chứng:** Nhóm chuyển trọng tâm từ kiểm đếm thiếu giấy tờ đơn thuần sang “đối chiếu thủ công giữa tài liệu và Core Banking, đồng thời phát hiện thông tin không khớp/thiếu trang trước khi chuyển hồ sơ”. Khảo sát cho thấy checklist hiện không phải cách duy nhất đang dùng (5/8 dùng bảng theo dõi riêng, 3/8 đối chiếu bằng mắt), nhưng chưa đo hiệu quả của checklist hay quy tắc. Vì vậy, nhóm sẽ thử checklist/Rule trước; OCR chỉ là hướng cân nhắc nếu đo được rằng thao tác đọc/trích xuất vẫn là bottleneck.
 ### 3.3. Research giải pháp đã có
 
 | Công cụ / case / pattern | Link | Giải bước nào trong quy trình? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
@@ -180,12 +171,12 @@ Khách hàng nộp hồ sơ
 | Bước | Actor | Input | Output | Thời gian / tần suất | Ghi chú |
 | ---: | ----- | ----- | ------ | -------------------- | ------- |
 | 1 | Khách hàng / nhân viên tiếp nhận | Bộ hồ sơ vay vốn cá nhân và danh mục giấy tờ | Hồ sơ được tiếp nhận, thường gồm nhiều file/ảnh | Mỗi hồ sơ | Tài liệu có thể chưa sắp xếp, khác định dạng hoặc thiếu thông tin |
-| 2 | Nhân viên tiếp nhận / tín dụng | Từng tài liệu trong hồ sơ và checklist nghiệp vụ | Danh sách tài liệu đã kiểm tra, các mục nghi thiếu/không hợp lệ | Khoảng 10-20 phút/hồ sơ | Phải mở và xem từng tài liệu riêng lẻ |
-| 3 | Nhân viên tín dụng | Tài liệu đã kiểm tra và dữ liệu trên Core Banking | Kết quả đối chiếu thông tin khách hàng/khoản vay | Khoảng 10-20 phút/hồ sơ | Sai lệch nhỏ có thể bị bỏ sót khi phải đối chiếu thủ công |
+| 2 | Nhân viên tiếp nhận / tín dụng | Từng tài liệu trong hồ sơ và checklist nghiệp vụ | Danh sách tài liệu đã kiểm tra, các mục nghi thiếu/không hợp lệ | Chưa đo riêng | Phải mở và xem từng tài liệu riêng lẻ; ước tính thời gian trong pitch chưa được bấm giờ xác nhận |
+| 3 | Nhân viên tín dụng | Tài liệu đã kiểm tra và dữ liệu trên Core Banking | Kết quả đối chiếu thông tin khách hàng/khoản vay | Chưa đo riêng | 7/8 người chọn đây là công đoạn tốn thời gian nhất; khảo sát không đo thời lượng riêng của bước |
 | 4 | Nhân viên tiếp nhận / khách hàng | Danh sách thiếu, sai hoặc cần làm rõ | Yêu cầu bổ sung/chỉnh sửa và hồ sơ được gửi lại | Thường lặp lại 1 hoặc nhiều lần | Các thiếu sót được phát hiện rải rác, khách hàng phải bổ sung nhiều lần |
-| 5 | Nhân viên tín dụng / thẩm định | Hồ sơ đã bổ sung và kết quả đối chiếu | Hồ sơ được xác nhận để chuyển sang thẩm định | Tổng cộng ước tính 35-45 phút/hồ sơ, chưa tính thời gian chờ bổ sung | Nếu vẫn còn sai lệch, hồ sơ quay lại bước 3 hoặc 4 |
+| 5 | Nhân viên tín dụng / thẩm định | Hồ sơ đã bổ sung và kết quả đối chiếu | Hồ sơ được xác nhận để chuyển sang thẩm định | Thời gian tự báo cáo: 4/8 chọn 30–45 phút; 3/8 chọn 15–30 phút; 1/8 chọn dưới 15 phút | Đây là các khoảng lựa chọn, không phải thời gian trung bình; chưa đối chiếu log |
 
-**Bottleneck chính:** Nhân viên phải kiểm tra thủ công từng file, đối chiếu thông tin giữa nhiều nguồn và phát hiện thiếu sót theo từng lần. Vì vậy, thiếu sót có thể chỉ được phát hiện sau khi hồ sơ đã đi qua một bước, dẫn đến liên hệ bổ sung nhiều lần, tăng thời gian xử lý và nguy cơ bỏ sót sai lệch.
+**Bottleneck chính:** Trong khảo sát, 7/8 người chọn đối chiếu thông tin giữa tài liệu và Core Banking là công đoạn tốn thời gian nhất; 5/8 chọn việc chờ lâu mới biết hồ sơ hợp lệ hay chưa là trải nghiệm phiền nhất. Khảo sát ghi nhận 5/8 hồ sơ gần nhất cần bổ sung từ 2 lượt trở lên, nhưng chưa xác định được thiếu sót được phát hiện ở bước nào hoặc đo thời gian của từng bước.
 
 ### 4.2. Quy trình tương lai
 
@@ -240,7 +231,7 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 | Chỉ số | Trước | Sau (kỳ vọng) | Ghi chú |
 | ------ | ----- | ------------- | ------- |
 | Số bước | 5 bước chính, có thể lặp lại bước 3-4 | 5 bước chính; phần kiểm tra được chạy tự động trước khi chuyển HITL | Số bước trên sơ đồ không giảm nhiều, nhưng giảm số lần lặp và thời gian xử lý ở mỗi bước |
-| Tổng thời gian | Khoảng 35-45 phút/hồ sơ, chưa tính thời gian chờ khách hàng bổ sung | Khoảng 15-25 phút/hồ sơ nếu tài liệu đọc được và dữ liệu khớp; hồ sơ ngoại lệ có thể lâu hơn | Cần đo lại bằng hồ sơ giả lập hoặc log thực tế; đây là target kỳ vọng, chưa phải số liệu đã xác nhận |
+| Tổng thời gian | Survey tự báo cáo: 4/8 chọn 30–45 phút, 3/8 chọn 15–30 phút, 1/8 chọn dưới 15 phút | Mục tiêu thử nghiệm: 15–25 phút/hồ sơ nếu tài liệu đọc được và dữ liệu khớp; ngoại lệ có thể lâu hơn | 30–45 phút là khoảng được chọn nhiều nhất, không phải trung bình; đo trước/sau trên cùng bộ hồ sơ để kiểm tra target |
 | Số bước thủ công | Khoảng 4-5 bước: mở file, kiểm tra checklist, đối chiếu Core Banking, lập yêu cầu bổ sung và kiểm tra lại | Khoảng 1-2 bước: xem cảnh báo/tài liệu gốc và xác nhận hoặc sửa kết quả trước khi chuyển thẩm định | Rule và AI chỉ hỗ trợ sàng lọc; quyết định nghiệp vụ vẫn do con người thực hiện |
 | Bottleneck chính | Mở và kiểm tra từng tài liệu; đối chiếu thủ công giữa nhiều nguồn; phát hiện thiếu sót rải rác nên phải yêu cầu bổ sung nhiều lần | Xử lý các trường hợp AI trích xuất không chắc chắn, dữ liệu không khớp hoặc checklist có ngoại lệ | Cần thiết kế hàng đợi HITL và hiển thị bằng chứng từ tài liệu gốc để người dùng kiểm tra nhanh |
 | Rủi ro mới phát sinh | Bỏ sót thiếu/sai lệch, xử lý lại nhiều lần và kéo dài thời gian chờ | OCR/trích xuất sai, cảnh báo nhầm hoặc bỏ sót; rò rỉ dữ liệu hồ sơ; người dùng quá tin vào kết quả tự động | Giảm thiểu bằng ngưỡng độ tin cậy, đối chiếu tài liệu gốc, log/audit, phân quyền dữ liệu và bắt buộc HITL trước khi chuyển thẩm định |
@@ -253,9 +244,9 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 | ------ | -------- |
 | **Actor** | Nhân viên tiếp nhận / Credit Officer xử lý hồ sơ vay vốn cá nhân. Khách hàng vay vốn là bên chịu ảnh hưởng khi bị yêu cầu bổ sung nhiều lần. |
 | **Quy trình** | Từ lúc nhận bộ hồ sơ của khách đến lúc chuyển sang thẩm định: mở từng tài liệu, đối chiếu checklist đủ/thiếu/hợp lệ, đối chiếu thông tin giữa tài liệu và Core Banking, liên hệ khách bổ sung rồi kiểm tra lại. |
-| **Bottleneck** | Kiểm tra thủ công từng file (khoảng 10–20 phút/hồ sơ) và đối chiếu thủ công giữa tài liệu với Core Banking (khoảng 10–20 phút/hồ sơ). Thiếu sót được phát hiện rải rác qua nhiều lần kiểm tra nên hồ sơ phải quay lại bước trước, sai lệch nhỏ dễ bị bỏ sót. |
-| **Impact** | Mỗi hồ sơ tốn khoảng 35–45 phút kiểm tra (chưa tính thời gian chờ khách bổ sung); khách bị yêu cầu bổ sung 1 hoặc nhiều lần; sai lệch bị bỏ sót có thể ảnh hưởng chất lượng thẩm định. |
-| **Success Metric** (baseline → target, cách đo) | **Chính:** thời gian kiểm tra sơ bộ/hồ sơ, baseline 35–45' (ước tính) → target ≤ 25' (kỳ vọng 15–25'; mức 20' tương ứng outcome giảm 50% ở OST). Cách đo: bấm giờ 5–10 hồ sơ giả lập/đã ẩn danh, trước và sau, cùng một người thực hiện. **Phụ:** số lượt yêu cầu bổ sung/hồ sơ, baseline chưa có (đếm trên 5–10 hồ sơ gần nhất hoặc hồ sơ giả lập) → giảm xuống tối đa 1 lượt. **Guardrail:** tỉ lệ bỏ sót thiếu/sai lệch trên bộ hồ sơ đã gài lỗi sẵn không cao hơn cách làm thủ công hiện tại. |
+| **Bottleneck** | Survey (N=8): 7/8 chọn đối chiếu số liệu giữa tài liệu giấy/ảnh với Core Banking là công đoạn tốn thời gian nhất; 1/8 chọn mở từng file kiểm tra checklist. Khảo sát không đo thời lượng từng công đoạn; các con số 10–20 phút ở một số pitch là ước tính ban đầu, chưa được xác minh bằng bấm giờ. |
+| **Impact** | Survey (N=8): thời gian tiếp nhận tự báo cáo gồm 4/8 chọn 30–45 phút, 3/8 chọn 15–30 phút, 1/8 chọn dưới 15 phút. 5/8 trả lời hồ sơ gần nhất cần bổ sung từ 2 lượt trở lên; riêng câu hỏi về 10 hồ sơ gần nhất, 7/8 chọn khoảng 3–5 hồ sơ cần bổ sung từ 2 lần trở lên. 5/8 cũng chọn chờ lâu mới biết hồ sơ hợp lệ hay chưa là trải nghiệm phiền nhất. Đây là tự báo cáo, chưa đối chiếu log. |
+| **Success Metric** (baseline → target, cách đo) | **Chính:** baseline khảo sát là phân bố theo khoảng: 4/8 ở 30–45 phút, 3/8 ở 15–30 phút, 1/8 dưới 15 phút; không suy ra trung bình chính xác. Mục tiêu thử nghiệm đề xuất là 15–25 phút/hồ sơ; đo bằng cách bấm giờ cùng 5–10 hồ sơ giả lập/đã ẩn danh trước và sau. **Phụ:** baseline tự báo cáo gồm 5/8 hồ sơ gần nhất có từ 2 lượt bổ sung trở lên; pilot đo lại số lượt bổ sung trên cùng bộ hồ sơ và đặt mục tiêu giảm. **Guardrail:** tỉ lệ bỏ sót thiếu/sai lệch trên bộ hồ sơ đã gài lỗi sẵn không cao hơn cách làm thủ công hiện tại. |
 | **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | AI/Rule **không** kết luận hồ sơ đủ điều kiện vay, không xếp hạng rủi ro, không đề xuất hay phê duyệt/từ chối khoản vay; không tự sửa dữ liệu Core Banking; không tự gửi yêu cầu cho khách hàng; không tự loại hồ sơ khi file không đọc được. Con người **luôn** kiểm tra: mọi cảnh báo thiếu/sai lệch, mọi trường độ tin cậy thấp hoặc thiếu, và xác nhận hồ sơ trước khi chuyển thẩm định. Dữ liệu thật không được đưa lên dịch vụ ngoài khi chưa có xác nhận của người có thẩm quyền; lab chỉ dùng dữ liệu giả lập/khử định danh. |
  
 **Phản biện nhận được và nhóm có đồng ý không:**
@@ -313,7 +304,7 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
  
 ### 6.4. Hai câu hỏi của Google PAIR
  
-- Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Bằng chứng: **chưa có từ kiểm chứng**, vì mục 3.2 chưa có phỏng vấn/survey. Thiết kế tạm chọn **augment**, dựa trên suy luận gián tiếp: hồ sơ vay chịu yêu cầu tuân thủ, nhóm đã gạch bỏ ý "AI tự thẩm định và duyệt" ở OST, và câu hỏi phản biện #3 ở pitch nêu vấn đề trách nhiệm khi người sau tin kết quả người trước. Cần xác nhận lại qua phỏng vấn.
+- Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Survey xác nhận một số khó khăn nhưng không hỏi sở thích giao việc hay hỗ trợ. Thiết kế tạm chọn **augment**, dựa trên yêu cầu nhân viên xác nhận/sửa kết quả và giới hạn quyền tự quyết; cần kiểm chứng riêng với người làm nghiệp vụ.
 - AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? **Bỏ sót tệ hơn**: một giấy tờ thiếu hoặc sai lệch lọt qua có thể ảnh hưởng chất lượng thẩm định và tuân thủ, còn báo nhầm chỉ tốn thêm vài phút xem lại tài liệu gốc. Thiết kế đã xử lý: đặt ngưỡng cờ thận trọng (nghiêng về báo nhầm), mọi trường độ tin cậy thấp luôn vào HITL, bước 4 xác nhận bắt buộc với mọi hồ sơ, và có guardrail bỏ sót. Đồng thời phải giới hạn báo nhầm, vì cảnh báo thừa quá nhiều sẽ khiến người dùng bỏ qua cảnh báo (alert fatigue).
 ---
 
@@ -324,8 +315,8 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 | **Actor**                                       |Nhân viên tiếp nhận / Credit Officer phụ trách rà soát sơ bộ hồ sơ vay vốn cá nhân. Khách hàng vay vốn là đối tượng thụ hưởng gián tiếp (giảm số lần bị đòi bổ sung giấy tờ).                                 |
 | **Quy trình**                                   |Quy trình tiếp nhận & sơ duyệt (5 bước): Tiếp nhận & kiểm tra định dạng file (Rule) $\rightarrow$ OCR/Trích xuất trường dữ liệu từ ảnh/scan (AI) $\rightarrow$ Kiểm tra danh mục checklist & đối chiếu chéo số liệu với Core Banking (Rule) $\rightarrow$ Cán bộ tín dụng rà soát cảnh báo, đối chiếu tài liệu gốc và xác nhận (HITL) $\rightarrow$ Xuất biên bản tiếp nhận/yêu cầu bổ sung gộp 1 lần hoặc chuyển thẩm định.                                 |
 | **Bottleneck**                                  |Thao tác mở từng file ảnh/scan để đọc và gõ lại thông tin; đối chiếu thủ công từng trường dữ liệu giữa hồ sơ và Core Banking; phát hiện sai sót rải rác qua nhiều lượt dẫn đến lặp lại quy trình.                                 |
-| **Impact**                                      |Tốn trung bình 35–45 phút/hồ sơ; khách hàng bị phiền hà do phải bổ sung hồ sơ nhiều lần (1–3 đợt); rủi ro bỏ sót sai lệch thông tin ảnh hưởng trực tiếp đến chất lượng thẩm định và tuân thủ rủi ro tín dụng.                                 |
-| **Success Metric** (baseline → target, cách đo) |- Metric chính (Thời gian): Giảm thời gian kiểm tra sơ bộ từ 35–45 phút (baseline ước tính) xuống $\le$ 20–25 phút/hồ sơ (target kỳ vọng giảm ~50%). Đo bằng cách bấm giờ thực hiện trên bộ 10 hồ sơ mẫu giả lập (cùng 1 nhân sự test trước và sau). <br>- Metric phụ (Lần lặp): Số lượt yêu cầu khách hàng bổ sung giấy tờ giảm xuống tối đa 1 lượt duy nhất/hồ sơ. <br>- Guardrail metric: Tỉ lệ bỏ sót sai lệch/thiếu sót (False Negative) trên bộ test gài lỗi $\le$ phương pháp thủ công hiện tại (mục tiêu 0% bỏ sót sai lệch chí mạng về danh tính và nguồn thu).                                |
+| **Impact**                                      |Survey (N=8): 7/8 chọn đối chiếu thủ công giữa tài liệu với Core Banking là công đoạn tốn thời gian nhất; thời gian tiếp nhận tự báo cáo phân bố 4/8 ở 30–45 phút, 3/8 ở 15–30 phút và 1/8 dưới 15 phút. 5/8 hồ sơ gần nhất có từ 2 lượt bổ sung trở lên; ở câu hỏi về 10 hồ sơ gần nhất, 7/8 chọn khoảng 3–5 hồ sơ có từ 2 lượt bổ sung trở lên; 5/8 chọn chờ lâu mới biết hồ sơ hợp lệ hay chưa là trải nghiệm phiền nhất. Mẫu nhỏ, tự báo cáo, chưa có log.                                 |
+| **Success Metric** (baseline → target, cách đo) |- Metric chính (Thời gian): baseline là phân bố theo khoảng nêu trên, không phải trung bình. Mục tiêu thử nghiệm đề xuất 15–25 phút/hồ sơ; đo bằng cách bấm giờ 5–10 bộ hồ sơ giả lập/đã khử định danh trước và sau. <br>- Metric phụ (Lần lặp): baseline survey là 5/8 hồ sơ gần nhất có từ 2 lượt bổ sung trở lên; pilot đo lại trên cùng bộ hồ sơ và đặt mục tiêu giảm tỷ lệ này. <br>- Guardrail metric: Tỉ lệ bỏ sót sai lệch/thiếu sót (False Negative) trên bộ test gài lỗi không cao hơn phương pháp thủ công hiện tại; mục tiêu 0% bỏ sót sai lệch nghiêm trọng về danh tính và nguồn thu.                                |
 | **Boundary**                                    |- AI/Rule tuyệt đối không: tự động duyệt/từ chối khoản vay, không xếp hạng điểm tín dụng, không tự sửa dữ liệu trên Core Banking, không tự động gửi email/tin nhắn yêu cầu khách bổ sung khi chưa có nhân viên duyệt, không tự động xóa/loại bỏ hồ sơ bị lỗi mờ. <br>- Con người bắt buộc kiểm tra (HITL): Mọi cờ cảnh báo bất thường, các trường dữ liệu có điểm tin cậy (confidence score) thấp hơn ngưỡng quy định, và ký xác nhận chuyển bước. Không đưa dữ liệu thật lên dịch vụ đám mây công cộng bên ngoài.                                 |
 | **AI intervention point**                       |Can thiệp duy nhất tại Bước 2: Đọc và bóc tách các trường thực thể có cấu trúc (Họ tên, CCCD/CMND, Ngày sinh, Địa chỉ, Thu nhập, Ngày cấp...) từ các file tài liệu scan/ảnh (CCCD, hợp đồng lao động, sao kê tài khoản ngân hàng), đồng thời gắn nhãn chất lượng ảnh (đủ sáng, mờ, mất góc).                                 |
 | **Mức chọn**                                    | Workflow (Phối hợp đa tầng: Triển khai Giai đoạn 1 gồm No AI + Rule; Giai đoạn 2 tích hợp AI OCR trích xuất trường dữ liệu trong workflow có con người kiểm soát - HITL). |
@@ -338,7 +329,7 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 |AI intervention point|Chưa định vị rõ ràng vị trí đứng của mô hình trong luồng hệ thống.|Xác định cụ thể duy nhất ở Bước 2 (chỉ làm nhiệm vụ OCR/trích xuất thực thể từ ảnh/scan tài liệu).|Tránh bẫy giải pháp "AI làm tất cả", làm rõ ranh giới kỹ thuật giữa Rule Engine (đối chiếu logic, checklist) và AI (thị giác máy tính/NLP trích xuất văn bản).|
 |Boundary & HITL|Đặt ranh giới chung chung là "không tự duyệt vay, con người kiểm tra cảnh báo".|Cụ thể hóa cơ chế HITL: bắt buộc duyệt từng trường có điểm tin cậy (confidence) thấp; cấm hoàn toàn tính năng "xác nhận hàng loạt" (bulk approve) để chống duyệt qua loa; cấm tự động gửi mail/tin nhắn cho khách.|Khắc phục trực tiếp lỗ hổng phản biện số 1 và số 4: ngăn chặn triệt để tâm lý chủ quan (automation bias) và bảo đảm tính chịu trách nhiệm cá nhân trong nghiệp vụ ngân hàng.|
 |Mức chọn|Chỉ ghi nhận chọn mức can thiệp là Workflow.|Bổ sung chiến lược triển khai theo 2 giai đoạn: Giai đoạn 1 làm No AI (chuẩn hóa checklist) + Rule; Giai đoạn 2 mới gắn AI OCR vào luồng.|Giảm thiểu rủi ro đầu tư lãng phí; nếu bước 1 giải quyết được phần lớn rắc rối do khách nộp sai mà không tốn chi phí AI thì giữ nguyên, chỉ nâng cấp khi dữ liệu scan/ảnh thực sự là điểm nghẽn lớn.|
-|Success Metric|Mục tiêu thời gian ghi khoảng 15–25 phút chung chung.|Khóa mục tiêu chính xác ở $\le$ 20–25 phút/hồ sơ (tương thích đúng Outcome giảm 50% ở cây OST mục 2.3); bổ sung Guardrail metric chi tiết về tỷ lệ bỏ sót sai lệch danh tính/thu nhập.|Đảm bảo tính nhất quán số liệu xuyên suốt toàn bộ báo cáo từ mục 2.3 sang mục 5 và mục 7.|
+|Success Metric|Bản v0 từng nêu thời lượng mục tiêu mà chưa ghi rõ cách đo.|Bản v1 giữ 15–25 phút/hồ sơ như mục tiêu thử nghiệm đề xuất, kèm cách bấm giờ trên bộ hồ sơ giả lập/đã khử định danh và guardrail về bỏ sót sai lệch nghiêm trọng.|Đây là target cần kiểm chứng, không phải kết quả khảo sát hay mức giảm đã được chứng minh.|
 
 **Tiêu chí đánh giá đầu ra của AI (3–5 tiêu chí):**
 
@@ -357,31 +348,37 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 
 | Rủi ro          | Câu hỏi                                                           | Mức độ rủi ro (Thấp = an toàn / TB / Cao = nguy hiểm) | Lý do / bằng chứng |
 | --------------- | ----------------------------------------------------------------- | ----------------------------------------------------- | ------------------ |
-| **Value**       | Người dùng có thật sự cần và sẽ dùng không?                       |                                                       |                    |
-| **Usability**   | Người dùng có dùng được, có hiểu và sửa được đầu ra của AI không? |                                                       |                    |
-| **Feasibility** | Có đủ dữ liệu, công cụ, kỹ năng để làm không?                     |                                                       |                    |
-| **Viability**   | Có hợp chi phí, pháp lý, quy định tổ chức không? Ai vận hành?     |                                                       |                    |
+| **Value**       | Người dùng có thật sự cần và sẽ dùng không?                       | Trung bình | Trong 8 câu trả lời, 7/8 nêu đối chiếu thủ công với Core Banking là công đoạn tốn thời gian nhất; 5/8 hồ sơ gần nhất cần bổ sung từ 2 lượt trở lên. Mẫu nhỏ, tự báo cáo và chưa có log để xác nhận tác động. |
+| **Usability**   | Người dùng có dùng được, có hiểu và sửa được đầu ra của AI không? | Trung bình | Luồng dự kiến có nhân viên xem cảnh báo cạnh tài liệu gốc và xác nhận/sửa trước khi chuyển bước. Chưa thử nghiệm với Credit Officer; cảnh báo nhiều có thể làm tăng tải và gây mệt mỏi. |
+| **Feasibility** | Có đủ dữ liệu, công cụ, kỹ năng để làm không?                     | Cao | Tài liệu công khai cho thấy có công cụ OCR/trích xuất biểu mẫu, nhưng nhóm chưa thử trên hồ sơ tiếng Việt đại diện, chưa đo độ chính xác trên tài liệu mờ/đa định dạng và chưa xác nhận quyền truy cập hay tích hợp Core Banking. |
+| **Viability**   | Có hợp chi phí, pháp lý, quy định tổ chức không? Ai vận hành?     | Cao | Hồ sơ vay chứa dữ liệu tài chính và định danh. Chưa có xác nhận của bộ phận bảo mật, pháp chế/tuân thủ hoặc chủ hệ thống về nơi xử lý, lưu trữ, quyền truy cập, chi phí và trách nhiệm vận hành. |
 
 ### 8.2. Kết luận
 
-**Quyết định:** Go / Not Yet / No-Go
+**Quyết định: Not Yet.** Chỉ cân nhắc pilot kỹ thuật giới hạn sau khi hoàn tất các điều kiện bên dưới; chưa đủ căn cứ triển khai trên hồ sơ thật hoặc hệ thống ngân hàng.
 
-**Lý do:**
+**Lý do:** Candidate có thể kiểm chứng và có hướng thử đơn giản bằng checklist/Rule, nhưng Value chưa được xác nhận với người làm nghiệp vụ. Rủi ro Feasibility và Viability đang cao vì chưa đánh giá trên tài liệu phù hợp và chưa có phê duyệt về dữ liệu/hệ thống. Tài liệu nhà cung cấp chỉ chứng minh có khả năng OCR/trích xuất nói chung, không chứng minh độ chính xác hoặc tính phù hợp cho quy trình tín dụng của nhóm.
 
-**Nếu Go — pilot nhỏ nhất:**
+**Nếu đủ điều kiện để pilot nhỏ nhất:** Bắt đầu bằng checklist và Rule trên bộ hồ sơ tổng hợp/giả lập, không chứa dữ liệu cá nhân; đo thời gian, số mục bị đánh dấu sai và số lỗi bị bỏ sót. Chỉ thử OCR trong môi trường được tổ chức phê duyệt, với nhân viên kiểm tra từng cảnh báo cạnh tài liệu gốc. Không kết nối Core Banking, không tự gửi yêu cầu khách hàng, không đưa ra quyết định tín dụng.
 
-**Nếu Not Yet — cần kiểm chứng gì trước:**
+**Nếu Not Yet — cần kiểm chứng gì trước:** (1) Hỏi sâu một số trường hợp survey để xác nhận thời điểm phát hiện thiếu sót và nguyên nhân; đối chiếu thời gian với log nếu được phép; (2) xác nhận checklist/nguồn dữ liệu chuẩn và control point bắt buộc; (3) hỏi bộ phận có thẩm quyền về môi trường xử lý dữ liệu được phép; (4) thử nghiệm trên bộ tài liệu giả lập/đã khử định danh trước khi chọn công cụ.
 
-**Nếu No-Go — nên làm gì thay AI:**
+**Nếu No-Go — nên làm gì thay AI:** Chuẩn hóa checklist theo loại hồ sơ, hướng dẫn chất lượng ảnh/tài liệu, gom các mục cần bổ sung thành một lần rà soát, làm rõ trạng thái và đầu mối xử lý; tiếp tục kiểm tra thủ công theo control point hiện hành.
 
-**Ngưỡng dừng** (nếu sau … mà … thì quay về …):
+**Ngưỡng dừng:** Dừng thử nghiệm ngay nếu phát hiện một lỗi thiếu/sai thông tin định danh hoặc nguồn thu lọt qua bước kiểm tra của nhân viên, nếu công cụ xử lý dữ liệu ngoài môi trường được phê duyệt, hoặc nếu chưa có người chịu trách nhiệm kiểm tra. Với bộ test, nếu độ chính xác trường cốt lõi thấp hơn ngưỡng nhóm đặt ở mục 7 hoặc thời gian xử lý không giảm so với checklist/Rule, không mở rộng OCR và quay về quy trình No AI/Rule.
 
 ---
 
 ## 9. Hạn chế và hướng tiếp theo
 
--
+- Survey ở mục 3.2 có 8 câu trả lời; mẫu nhỏ và tự báo cáo nên không đại diện cho toàn bộ người làm nghiệp vụ. Chưa có log để xác nhận thời gian hoặc tần suất trên toàn bộ hồ sơ.
+- Thời gian tiếp nhận được chọn theo khoảng: 4/8 chọn 30–45 phút, 3/8 chọn 15–30 phút, 1/8 chọn dưới 15 phút; không có cơ sở tính trung bình chính xác từ các khoảng này. Target 15–25 phút và ngưỡng eval vẫn là đề xuất, cần thử nghiệm.
+- Research ở mục 3.3 là tài liệu về khả năng OCR/trích xuất tổng quát, không phải đánh giá nhà cung cấp cho ngân hàng; chưa xác minh hỗ trợ tiếng Việt, loại giấy tờ, độ chính xác, vùng lưu trữ, chi phí, bảo mật hoặc tích hợp Core Banking trong môi trường cụ thể.
+- Hướng tiếp theo: hỏi sâu một số trường hợp survey để xác nhận khi nào và vì sao thiếu sót được phát hiện; xác nhận checklist và quyền dữ liệu với bộ phận nghiệp vụ/bảo mật/tuân thủ; xây bộ test giả lập có lỗi gài sẵn; đo thời gian trước/sau và thử checklist/Rule trước. Chỉ cân nhắc OCR nếu các bước trên cho thấy còn bottleneck và có phê duyệt phù hợp.
 
 ## 10. Tài liệu tham khảo
 
--
+- Microsoft Learn, [Azure AI Document Intelligence overview](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-3.1.0) — OCR và trích xuất cấu trúc/trường từ tài liệu.
+- Google Cloud, [Document AI processor list](https://docs.cloud.google.com/document-ai/docs/processors-list) — danh sách processor cho OCR và trích xuất.
+- Amazon Web Services, [Analyzing Documents with Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html) — phân tích văn bản, biểu mẫu và bảng.
+- VinUni AI20K, `docs/01-worksheet.md`, `CHECKPOINTS.md` — yêu cầu và hướng dẫn CP4–CP6 của bài lab.
