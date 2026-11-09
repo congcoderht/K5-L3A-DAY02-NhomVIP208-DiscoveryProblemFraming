@@ -97,9 +97,9 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 - Mức can thiệp & Quyết định (CP6)
 
-**Đóng góp cụ thể (mình đã làm gì, ra sản phẩm gì):
+**Đóng góp cụ thể (mình đã làm gì, ra sản phẩm gì):**
 
--Hoàn thiện ma trận Độ mơ hồ × Độ phức tạp, so sánh 4 mức can thiệp (chọn Workflow 2 giai đoạn), xây dựng AI Canvas và trả lời 2 câu hỏi thiết kế Google PAIR.   Hoàn thiện bảng Quyết định với 4 khía cạnh rủi ro, xác định pilot nhỏ nhất, ngưỡng dừng và chốt quyết định Not Yet cùng nhóm.
+-Hoàn thiện ma trận Độ mơ hồ × Độ phức tạp, so sánh 4 mức can thiệp (chọn Workflow 2 giai đoạn), xây dựng AI Canvas và trả lời 2 câu hỏi thiết kế Google PAIR.
 
 **Bằng chứng** (phần nào trong group_report.md, file nào trong report/assets/, commit nào):
 
