@@ -145,16 +145,16 @@ HIỆN TẠI — 90 phút
 
 | Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng tới bài nhóm |
 |---|---|---|
-| Pitch Problem Card | | |
-| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: | |
-| Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: |
-| Gom cluster / cây OST | | |
-| Chọn candidate problem | | |
-| Kiểm chứng / research | | |
-| Quy trình nhóm | | |
-| Problem Statement | | |
-| Mức can thiệp AI | | |
-| Quyết định | | |
+| Pitch Problem Card | Trình bày Problem Card về kiểm tra tính đầy đủ và hợp lệ của hồ sơ vay, giải thích bottleneck là bước mở và kiểm tra thủ công nhiều tài liệu | Giúp nhóm thấy đây là vấn đề có quy trình rõ, lặp lại và có thể đo thời gian xử lý. |
+| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: Nếu khách hàng nộp đủ nhưng ảnh mờ, cắt góc, hoặc sai định dạng thì sao? Việc cảnh báo thiếu có thực sự giải quyết được việc "bổ sung nhiều lần" nếu chất lượng giấy tờ không được kiểm soát ngay từ đầu? | Nhóm bổ sung bước kiểm tra chất lượng tài liệu ngay khi tiếp nhận. Hồ sơ bị mờ, cắt góc hoặc không đọc được phải được cảnh báo và yêu cầu xử lý trước khi chuyển sang bước thẩm định. |
+| Nhận phản biện | Câu hỏi tôi nhận được: Phần nào trong việc lập báo cáo hiện mất nhiều thời gian nhất, và có mẫu hoặc quy tắc sẵn có nào giúp giảm công việc mà vẫn bảo đảm người có thẩm quyền kiểm tra được? | Tôi đã sửa gì: |
+| Gom cluster / cây OST | Đề xuất gom các vấn đề liên quan đến kiểm tra hồ sơ, đối chiếu dữ liệu và tổng hợp báo cáo thành các nhóm nhu cầu riêng. | Giúp nhóm nhìn được mối quan hệ giữa opportunity, bottleneck và outcome. |
+| Chọn candidate problem | Tham gia so sánh các candidate theo mức độ ảnh hưởng, tần suất, khả năng đo lường và tính phù hợp với phạm vi bài. | mức độ ảnh hưởng, tần suất, khả năng đo lường và tính phù hợp với phạm vi bài.	Nhóm thống nhất ưu tiên vấn đề kiểm tra tính đầy đủ và hợp lệ của hồ sơ vay. |
+| Kiểm chứng / research | Làm việc với Linh và Công xây dựng, rà soát bộ câu hỏi theo phương pháp Mom Test; đồng thời khảo sát khả năng trích xuất văn bản của FPT.AI Reader và Azure Document Intelligence. | Nhóm nhận thấy các công cụ này chủ yếu hỗ trợ đọc và bóc tách dữ liệu từ từng tài liệu riêng lẻ, trong khi bài toán của nhóm còn cần đối chiếu chéo thông tin giữa nhiều giấy tờ trong cùng một bộ hồ sơ. |
+| Quy trình nhóm | Góp ý làm rõ quy trình từ tiếp nhận hồ sơ, kiểm tra từng tài liệu, đối chiếu với Core Banking, yêu cầu bổ sung đến chuyển thẩm định | Nhóm xác định bottleneck chính là mở nhiều file, nhập và đối chiếu thủ công, khiến hồ sơ phải bổ sung nhiều lần; thời gian hiện tại ước tính 35–45 phút/hồ sơ. |
+| Problem Statement | Góp phần làm rõ acotr là nhân viên tiếp nhận/Credit Officer, bottleneck là kiểm tra và đối chiểu thủ công, cùng tác động đến thời gian và rủi ro bỏ sót. | Problem Statement được cụ thể hóa bằng baseline 35–45 phút/hồ sơ, mục tiêu còn tối đa 20–25 phút, số lần bổ sung không quá một lần và có bước HITL bắt buộc. |
+| Mức can thiệp AI | Xác định cùng các thành viên và quyết định bài toàn vào mức Độ mơ hồ Thấp và đặt Độ phức tạp Cao | Nhóm chọn mức Workflow để triển khai |
+| Quyết định | Định hướng nhóm không để AI tự duyệt, tự từ chối hoặc tự duyệt hồ sơ vay mà phải chuyển sự quyết định sang con người | Nhóm xác định rõ boundary và cơ chế HITL: AI chỉ hỗ trợ một bước trong Workflow, còn quyết định nghiệp vụ vẫn thuộc về con người. Điều này giúp giảm rủi ro bỏ sót, automation bias và vi phạm tuân thủ. |
 
 ---
 
@@ -162,12 +162,12 @@ HIỆN TẠI — 90 phút
 
 | Checkpoint | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
 |---|---|---|---|---|
-| CP1 Scan | | | | |
-| CP2 Problem Card | | | | |
-| CP4 Research | | | | |
-| CP5 Quy trình | | | | |
-| CP5–6 Problem Statement | | | | |
-| CP6 Mức can thiệp / quyết định | | | | |
+| CP1 Scan | Gợi ý thêm vấn đề theo các kênh lặp lại, tốn thời gian và cần tổng hợp nhiều thông tin. | Giúp mở rộng góc nhìn và chuyển ý tưởng thành Job Story có actor, bối cảnh và kết quả mong muốn. | Một số gợi ý còn chung chung, dễ chuyển sang giải pháp như “dùng AI để tự động hóa”. | Em giữ các vấn đề gắn với quy trình hồ sơ vay và bổ sung thời gian xử lý dựa trên bối cảnh thực tế. |
+| CP2 Problem Card | Nhờ AI phản biện actor, bottleneck, impact, metric và khả năng giải quyết bằng No AI/Rule/Workflow/Agent. | Giúp phát hiện phạm vi quá rộng và các câu hỏi cần làm rõ, đặc biệt về chất lượng tài liệu và trách nhiệm khi AI sai. | AI có xu hướng mặc định OCR hoặc AI là giải pháp, chưa phân biệt rõ kiểm tra tính đầy đủ với xác minh giấy tờ thật. | Tôi thu hẹp bài toán về kiểm tra tính đầy đủ, chất lượng và tính nhất quán của hồ sơ; không đưa xác minh giả mạo vào MVP. |
+| CP4 Research | Hỗ trợ lập câu hỏi Mom Test và gợi ý các công cụ OCR/document intelligence để nghiên cứu. | Giúp nhóm có khung câu hỏi và nhanh chóng so sánh các khả năng như đọc văn bản, nhận diện trường dữ liệu và xử lý biểu mẫu. | AI có thể mô tả tính năng công cụ quá chung hoặc suy diễn rằng OCR có thể xác nhận hồ sơ hợp lệ. | Tôi rà soát lại nguồn chính thức và kết luận rằng OCR chỉ hỗ trợ trích xuất; việc đối chiếu chéo và quyết định nghiệp vụ vẫn cần Rule và con người. |
+| CP5 Quy trình | Chuyển mô tả quy trình hiện tại thành các bước có actor, input, output, thời gian và bottleneck. | Giúp trình bày rõ quy trình trước/sau và nhận diện các điểm có thể dùng Rule, AI hoặc HITL. | AI dễ gộp các bước kiểm tra khác nhau thành một bước hoặc bỏ qua vòng lặp yêu cầu bổ sung. | Tôi tách riêng bước kiểm tra chất lượng tài liệu, đối chiếu Core Banking, yêu cầu bổ sung và xác nhận chuyển thẩm định. |
+| CP5–6 Problem Statement | Nhờ AI rà soát actor, bottleneck, impact, metric và boundary của Problem Statement. | Giúp phát hiện chỗ còn mơ hồ và gợi ý cách viết baseline, target, guardrail metric rõ hơn. | AI thường đề xuất mục tiêu lý tưởng hoặc viết như thể giải pháp đã chắc chắn khả thi. | Tôi giữ các số liệu ở mức ước tính, ghi rõ cách đo bằng hồ sơ giả lập và bổ sung boundary: AI không tự duyệt, từ chối hay sửa dữ liệu. |
+| CP6 Mức can thiệp / quyết định | Dùng AI để so sánh No AI, Rule, Workflow và Agent, đồng thời phân tích rủi ro của từng mức. | Giúp nhóm thấy quy trình có thể bắt đầu bằng Checklist + Rule, sau đó mới thêm OCR nếu cần. | AI dễ đề xuất Agent hoặc tự động hóa quá nhiều, chưa đủ chú ý đến bảo mật và trách nhiệm trong nghiệp vụ tín dụng. | Tôi thống nhất hướng Workflow có HITL: AI chỉ OCR/trích xuất ở một bước, Rule xử lý đối chiếu, Credit Officer kiểm tra và quyết định; quyết định triển khai cần chờ kiểm chứng thêm. |
 
 ---
 
@@ -176,21 +176,31 @@ HIỆN TẠI — 90 phút
 Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ cho các câu 6.1–6.6 (không tính 6.7, câu này được chấm riêng ở tiêu chí C5). **Không dùng AI để viết thay.**
 
 **6.1. Tôi học được gì khi nghe top 3 problems của các bạn khác?**
+Em học được rằng cùng một pain có thể xuất hiện nhiều góc nhìn khác nhau. Các bạn giúp em thấy cần kiểm tra actor, bottleneck và bằng chứng trước khi nghĩ đến giải pháp.
 
 **6.2. Nhóm có lúc nào bị "solution-first" (nghĩ giải pháp trước khi hiểu vấn đề) không? Lúc đó nhóm nhận ra và xử lý thế nào?**
+Có. Nhón từng nhanh chóng nghĩ đến OCR, AI Agent và chatbot. Sau khi lập cây OST và so sánh No AI/Rule/Workflow/Agent, nhóm quay lại xác định pain trước và nhận ra Checklist + Rule có thể giải quyết một phần vấn đề.
 
 **6.3. Tôi có đổi ý sau khi bị phản biện không? Kể một lần cụ thể.**
+Có. Khi được hỏi phần nào trong báo cáo tốn nhiều thời gian nhất và liệu mẫu/quy tắc sẵn có đã đủ hay chưa, em nhận ra không nên mặc định dùng AI để viết toàn bộ báo cáo. Cần ưu tiên chuẩn hóa biểu mẫu, Rule và giữ bước kiểm tra của người có thẩm quyền.
 
 **6.4. Kết quả kiểm chứng (phỏng vấn/survey/research) có làm tôi bất ngờ không? Điều gì?**
+Điều bất ngờ nhất là khoảng cách giữa việc AI trích xuất đúng chữ và việc giải quyết bài toán nghiệp vụ. Azure Document Intelligence hay AWS Textract có thể đọc CCCD, hợp đồng hoặc sao kê, nhưng không thể tự xác minh giấy tờ giả, tính hợp pháp của con dấu hay điều kiện vay. AI chỉ nên hỗ trợ đọc dữ liệu; trách nhiệm pháp lý, kiểm soát rủi ro và quyết định tín dụng vẫn thuộc về con người. Ngoài ra, yêu cầu bảo mật dữ liệu ngân hàng khiến việc sử dụng dịch vụ đám mây công cộng bị giới hạn nghiêm ngặt.
 
 **6.5. Điều khó nhất khi viết Problem Statement là gì?**
+Khó nhất là viết vấn đề đủ cụ thể nhưng không lẫn vào giải pháp. Em phải phân biệt rõ bottleneck hiện tại, tác động đo được và boundary của bài toán.
 
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**
+Nếu làm lại, em sẽ kiểm chúng với người dùng sớm và phản biện mạnh hơn về số liệu thời gian, tấn suất hồ sơ thiếu và khả năng dugnf Checklist/Rule trước khi nghĩ đến AI.
 
-**6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
+**6.7. Hiểu bài: giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.**
+Quy trình hiện tại yêu cầu nhân viên mở từng tài liệu, kiểm tra checklist, đối chiếu với Core Banking và yêu cầu bổ sung khi phát hiện thiếu sót. Quy trình này mất khoảng 35–45 phút mỗi hồ sơ và có thể khiến khách hàng phải bổ sung nhiều lần. AI không được tự duyệt, từ chối khoản vay, sửa dữ liệu hay gửi yêu cầu cho khách hàng. Nhóm chọn Workflow, trong đó Rule xử lý checklist và đối chiếu, còn AI chỉ hỗ trợ OCR/trích xuất dữ liệu từ ảnh hoặc bản scan. Credit Officer vẫn phải kiểm tra và xác nhận kết quả trước khi chuyển hồ sơ sang thẩm định. Quyết định hiện tại nên là Not Yet cho đến khi nhóm hoàn tất kiểm chứng với người dùng và đánh giá bốn rủi ro chính.
 
 ---
 
 ## 7. Tài liệu tham khảo
-
+- Hướng dẫn thực hành và bài mẫu môn học (docs/01-worksheet.md, docs/02-deliverable-example.md).
+- Báo cáo tổng hợp nhóm NhomVIP208 (report/group_report.md).
+- Tài liệu kỹ thuật: Microsoft Azure Document Intelligence, Google Document AI, AWS Textract.
+- Khung phương pháp: Google PAIR Guidebook (Thiết kế AI lấy con người làm trung tâm) và Opportunity Solution Tree (Teresa Torres).
 -
