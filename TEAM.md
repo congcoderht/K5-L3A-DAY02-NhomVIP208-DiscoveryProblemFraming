@@ -14,8 +14,8 @@
 |---:|---|---|---|---|
 | 1 | Trương Việt Công | 2A202603585 | Điều phối thời gian, khảo sát/kiểm chứng, hỗ trợ CP3 và research | congcoderht |
 | 2 | Lê Quang Linh | 2A202603583 | Ghi chép, phản biện, phụ trách hội tụ CP3, hỗ trợ research | linhlqhe181396 |
-| 3 | Lê Anh Quân | 2A202603576 | Phụ trách research, mức can thiệp và quyết định CP6 | quanle28 |
-| 4 | Nguyễn Trường Duy | 2A202603589 | Phụ trách quy trình trước/sau CP5, hỗ trợ kiểm chứng và research | Dizo279 |
+| 3 | Lê Anh Quân | 2A202603576 | Phụ trách research, kiểm chứng, mức can thiệp và quyết định CP6 | quanle28 |
+| 4 | Nguyễn Trường Duy | 2A202603589 | Xây dựng workflow/quy trình trước-sau CP5, phản biện, hỗ trợ kiểm chứng và research | Dizo279 |
 | 5 | Đoàn Văn Tú | 2A202603595 | Phụ trách Problem Statement, góp ý quy trình và phương án No AI/Rule | tu7749 |
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
