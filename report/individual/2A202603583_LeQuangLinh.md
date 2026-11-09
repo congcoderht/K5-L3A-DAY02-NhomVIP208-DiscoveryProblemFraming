@@ -9,8 +9,8 @@
 - Họ tên: Lê Quang Linh
 - MSSV: 2A202603583
 - Email trường (không bắt buộc, repo có thể để public):
-- Tên nhóm: Truong_Viet_Cong
-- Link repo nhóm: https://github.com/congcoderht/Truong_Viet_Cong/tree/main
+- Tên nhóm: NhomVIP208
+- Link repo nhóm: https://github.com/congcoderht/K5-L3A-DAY02-NhomVIP208-DiscoveryProblemFraming
 
 ---
 
