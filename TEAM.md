@@ -72,3 +72,21 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 **Điều mình học được từ phần nhóm:**
 
 - học được cách bóc tách một quy trình nghiệp vụ thành các yếu tố cấu thành khách quan: ai là người chịu ảnh hưởng (Actor), thao tác nào thực sự làm nghẽn (Bottleneck đo bằng phút), và hệ quả kinh doanh nếu không xử lý
+
+### NguyenTruongDuy-2A202603589
+
+**Phần việc phụ trách:**
+
+- Quy trình trước/sau (CP5)
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+- Xác định quy trình trước/sau, vẽ sơ đồ quy trình, xác định boudary và các phương án quay về
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+- Phần 4. Quy trình trước/sau (CP5) trong group_report.md, commit: hoan thien phan 4
+
+**Điều mình học được từ phần nhóm:**
+
+- Em học được rằng quy trình tương lai không chỉ là thêm AI vào các bước hiện tại, mà phải phân định rõ việc nào do Rule, AI và con người thực hiện. Quy trình mới phải đảm bảo rủi ro được kiểm soát, trách nhiệm pháp lý rõ ràng và không làm tăng thời gian xử lý hồ sơ.
