@@ -296,9 +296,9 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 | **Workflow** | Các bước định sẵn bằng code; AI chỉ làm **một bước**: OCR/trích xuất trường từ ảnh/scan, kèm độ tin cậy; con người xác nhận | Tài liệu chủ yếu là ảnh/scan, nhiều loại giấy tờ, Rule một mình không đọc được | OCR sai (nhất là tiếng Việt, ảnh mờ, cắt góc); dữ liệu nhạy cảm; automation bias; chi phí vận hành | **Có, giai đoạn 2**, chỉ khi giai đoạn 1 chưa đủ và vượt các điều kiện ở mục 8 |
 | **Agent** | AI tự quyết bước tiếp theo: tự chọn tài liệu cần xem, tự hỏi khách, tự kết luận hồ sơ | Quy trình không định sẵn được, nhiều nhánh không đoán trước | Vi phạm boundary và yêu cầu tuân thủ; khó kiểm soát trách nhiệm; không có bằng chứng cần thiết | **Không** |
  
-**Mức chọn:** Workflow (AI chỉ ở một bước trích xuất, Rule làm phần còn lại, con người quyết định), **triển khai theo giai đoạn**: giai đoạn 1 là No AI + Rule, giai đoạn 2 thêm OCR nếu đo thấy chưa đủ.
+**Mức chọn:** Workflow - AI chỉ ở một bước trích xuất, Rule làm phần còn lại, con người quyết định, **triển khai theo giai đoạn**: giai đoạn 1 là No AI + Rule, giai đoạn 2 thêm OCR nếu đo thấy chưa đủ.
  
-**Vì sao không chọn mức đơn giản hơn:** No AI và Rule không đọc được nội dung ảnh/scan, nên bước 2 và 3 (bottleneck chính và phụ) vẫn phải mở từng tài liệu bằng tay. Nhóm chọn Workflow cho đích đến chứ không chọn ngay, vì chưa có bằng chứng (CP4 trống) về tỉ lệ hồ sơ ở dạng ảnh/scan và về việc Rule/checklist đã giải được bao nhiêu (assumption #6 ở mục 3.1). Nếu giai đoạn 1 cho thấy Rule giải được khoảng 70–80% trường hợp và đạt metric, nhóm dừng ở Rule và không thêm AI.
+**Vì sao không chọn mức đơn giản hơn:**  Nhóm sẽ thử checklist và Rule trước để kiểm tra giấy tờ bắt buộc và đối chiếu dữ liệu đã có sẵn. Nếu nhân viên vẫn phải mở nhiều ảnh/scan để đọc và nhập thông tin, nhóm mới bổ sung OCR trong Workflow: trích xuất thông tin → Rule đối chiếu → nhân viên kiểm tra. Vì dữ liệu khách hàng gắn cho vay vốn đóng vai trò quan trọng trong việc xác minh, OCR có tỷ lệ sai lệch nhất định.
  
 ### 6.3. AI Canvas rút gọn
  
@@ -307,7 +307,7 @@ không tự động kết luận khả năng vay, xếp hạng rủi ro hay phê
 | **Prediction** — AI dự đoán / tạo ra gì? | Đọc ảnh/scan CCCD, sao kê, hợp đồng và trả về các trường dữ liệu (họ tên, số CCCD, ngày sinh, thu nhập…) kèm độ tin cậy và cờ chất lượng (mờ, cắt góc, sai loại tài liệu). AI **không** dự đoán khả năng vay hay rủi ro tín dụng. |
 | **Judgment** — con người cân nhắc, quyết định gì? | Credit Officer xem tài liệu gốc ở các ô bị cờ hoặc độ tin cậy thấp, quyết định trường nào đúng, ngoại lệ nào chấp nhận, hồ sơ cần bổ sung hay đã đủ để chuyển thẩm định. |
 | **Action** — hành động cuối cùng là gì, ai làm? | Nhân viên xác nhận/sửa dữ liệu, gửi yêu cầu bổ sung gộp một lần cho khách, chuyển hồ sơ sang thẩm định. Hệ thống không tự làm các việc này. |
-| **Outcome** — đo kết quả bằng gì? | Thời gian kiểm tra/hồ sơ (baseline 35–45' → target ≤ 25'), số lượt bổ sung/hồ sơ (→ tối đa 1), tỉ lệ bỏ sót và báo nhầm trên bộ hồ sơ giả lập (mục 7). |
+| **Outcome** — đo kết quả bằng gì? | Thời gian kiểm tra/hồ sơ , số lượt bổ sung/hồ sơ (→ tối đa 1), tỉ lệ bỏ sót và báo nhầm trên bộ hồ sơ giả lập. |
 | **Input** — AI cần dữ liệu đầu vào gì mỗi lần chạy? Có sẵn không? | Ảnh/scan tài liệu của hồ sơ; checklist bắt buộc theo loại khoản vay; dữ liệu Core Banking để so khớp. Hồ sơ có sẵn nhưng là dữ liệu nhạy cảm, nên lab dùng hồ sơ giả lập/khử định danh. **Chưa xác nhận** quyền truy cập Core Banking thật và chính sách cho phép xử lý dữ liệu ngoài hạ tầng tổ chức. |
 | **Feedback** — lấy phản hồi ở đâu để cải thiện? | Log các trường nhân viên sửa so với kết quả AI (theo loại giấy tờ); lý do ngoại lệ; hồ sơ bị trả lại ở bước thẩm định; ý kiến nhân viên về cảnh báo thừa/thiếu. |
  
