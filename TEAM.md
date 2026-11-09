@@ -15,7 +15,7 @@
 | 1 |Trương Việt Công | 2A202603585 | Điều phối thời gian,kiểm chứng | congcoderht |
 | 2 | Lê Quang Linh | 2A202603583 | ghi chép, phản biện | linhlqhe181396 |
 | 3 | Lê Anh Quân | 2A202603576 | research,kiểm chứng | quanle28 |
-| 4 | Nguyễn Trường Duy | 2A202603589| Thành Viên | Dizo279 |
+| 4 | Nguyễn Trường Duy | 2A202603589| Xây dựng workflow, phản biện | Dizo279 |
 | 5 | Đoàn Văn Tú| 2A202603595 | Viết Problem Statement. | tu7749 |
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
