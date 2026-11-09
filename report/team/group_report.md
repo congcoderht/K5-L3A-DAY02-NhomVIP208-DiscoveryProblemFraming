@@ -36,42 +36,55 @@
 
 ### 2.2. Cluster
 
+Nhóm có 15 candidate, gom thành 4 cụm dựa trên pattern bản chất công việc:
+
 | Cluster | Các candidate | Pattern chung |
 | ------- | ------------- | ------------- |
-| A       |               |               |
-| B       |               |               |
-| C       |               |               |
+| A — Tiếp nhận & Kiểm tra hồ sơ tín dụng | #1, #7, #8, #10, #14 | Rà soát danh mục giấy tờ, đối chiếu tính đầy đủ, hợp lệ và tính nhất quán dữ liệu giữa nhiều tài liệu/hệ thống |
+| B — Xử lý báo cáo & Phân tích chuyên sâu | #4, #9 | Bóc tách số liệu chuyên ngành từ nhiều nguồn để tổng hợp thành bản nhận xét/báo cáo phân tích |
+| C — Theo dõi luồng & Tra cứu trạng thái | #2, #3, #11, #12, #13 | Tra cứu tiến độ xử lý, lịch sử bàn giao hồ sơ và công nợ giữa các phòng ban hoặc với khách hàng |
+| D — Chuẩn hóa dữ liệu & Quy định nghiệp vụ | #5, #6, #15 | Làm sạch dữ liệu nội bộ (CRM/regex), trích xuất đầu việc cuộc họp, tra cứu phiên bản biểu mẫu có hiệu lực |
 
 ### 2.3. Opportunity Solution Tree rút gọn
 
 Gốc là **1 outcome**. Nhánh là **opportunity** (nhu cầu, pain), không phải tính năng hay công cụ.
 
 ```text
-OUTCOME:
-├── Opportunity A:
-├── Opportunity B:
-└── Opportunity C:
+OUTCOME: Rút ngắn 50% thời gian tiếp nhận và sơ duyệt một bộ hồ sơ vay vốn cá nhân mà vẫn đảm bảo tính tuân thủ và chính xác
+├── Opportunity A1: Cán bộ tín dụng mất nhiều thời gian mở từng file để rà soát đủ/thiếu danh mục giấy tờ
+├── Opportunity A2: Tốn nhiều thời gian đối chiếu chéo số liệu giữa tài liệu giấy/ảnh (CCCD, sao kê, hợp đồng) với hệ thống Core Banking
+└── Opportunity A3: Khách hàng thường xuyên bị yêu cầu bổ sung giấy tờ nhiều lần do nhân viên phát hiện thiếu sót rải rác
 ```
 
 Những ý đã gạch bỏ vì là solution đội lốt opportunity:
 
--
+- ✗ "Dùng OCR và AI Agent tự động thẩm định và duyệt hồ sơ vay" (Đây là solution công nghệ, vi phạm quy định tuân thủ ngân hàng)
+- ✗ "Xây dựng cổng portal/chatbot cho khách hàng tra cứu trạng thái hồ sơ" (Đây là solution tính năng phần mềm)
+- ✗ "Tự động gửi email đòi khách bổ sung giấy tờ" (Đây là feature/automation cụ thể)
 
 ### 2.4. Chấm điểm shortlist (1–5)
 
+Nhóm chọn 3 candidate đại diện nổi bật nhất từ 15 bài toán:
+
 | Candidate | Actor rõ | Quy trình rõ | Pain có bằng chứng | Impact đo được | Vừa sức lab | So sánh được No AI/Rule/Workflow/Agent | Nhóm hiểu domain | Tổng |
 | --------- | -------: | -----------: | -----------------: | -------------: | ----------: | -------------------------------------: | ---------------: | ---: |
-|           |          |              |                    |                |             |                                        |                  |      |
-|           |          |              |                    |                |             |                                        |                  |      |
-|           |          |              |                    |                |             |                                        |                  |      |
+| **Kiểm tra tính đầy đủ và nhất quán hồ sơ vay (#7 & #8)** | 5 | 5 | 5 | 5 | 4 | 5 | 5 | **34** |
+| Bóc tách tài liệu kỹ thuật & đối thủ (#4) | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 28 |
+| Tự động tạo dự thảo báo cáo thẩm định (#9) | 4 | 3 | 4 | 4 | 2 | 4 | 3 | 24 |
 
-**Candidate được chọn:**
+**Candidate được chọn:** Kiểm tra tính đầy đủ và nhất quán dữ liệu hồ sơ vay vốn cá nhân (Gộp trọng tâm của #1, #7, #8 và #14).
 
-**Vì sao chọn:**
+**Vì sao chọn:** 
+- Đây là "nỗi đau" lớn nhất trong nhóm, được 4/5 thành viên cùng đưa ra trong buổi pitch với cùng một pattern.
+- Quy trình rõ ràng: hồ sơ vay vốn cá nhân luôn có bộ danh mục chuẩn (Checklist: Pháp lý, Nguồn thu, Tài sản bảo đảm).
+- Đo lường được ngay: hiện tại mất trung bình 35–45 phút/bộ hồ sơ, hay bị trả về hoặc yêu cầu bổ sung nhiều lần.
+- Hoàn toàn khả thi để so sánh rõ nét giữa 4 mức giải pháp: No AI (Checklist giấy) vs Rule (Script đối chiếu cứng) vs Workflow (Trích xuất OCR + đối chiếu thực thể + người duyệt) vs Agent (Tự động duyệt vay).
 
 **Vì sao loại các candidate còn lại:**
+- *Bóc tách tài liệu kỹ thuật (#4):* Pain có thật nhưng chỉ phục vụ cá nhân/bộ phận hẹp, không phải là pain tập trung của đa số thành viên nhóm.
+- *Tự động tạo dự thảo báo cáo thẩm định (#9):* Đòi hỏi đánh giá năng lực tài chính và phê duyệt rủi ro mang tính chủ quan nghiệp vụ rất cao; khó xây dựng tiêu chí đánh giá (eval) chuẩn mực trong thời lượng buổi lab.
 
-**Xử lý bất đồng (nếu có):**
+**Xử lý bất đồng (nếu có):** Linh ban đầu muốn bảo lưu bài toán Bóc tách tài liệu kỹ thuật (#4) vì bản thân đã chuẩn bị kỹ ở cá nhân. Tuy nhiên sau khi cả nhóm phân tích cây OST và bảng chấm điểm, Linh đồng thuận chuyển sang bài toán tín dụng vì đây là nghiệp vụ phổ biến, impact lớn cho doanh nghiệp và có nhiều dữ liệu mẫu để giả lập kiểm chứng hơn.
 
 ---
 
