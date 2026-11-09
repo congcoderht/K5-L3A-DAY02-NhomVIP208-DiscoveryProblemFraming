@@ -5,9 +5,9 @@
 
 ## 1. Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: NhomVIP208
 - Thành viên: xem `TEAM.md`
-- Candidate problem được chọn (1 câu):
+- Candidate problem được chọn (1 câu): 
 - Quyết định cuối: Go / Not Yet / No-Go
 
 ---
@@ -18,9 +18,9 @@
 
 | # | Người đưa ra | Candidate (Job Story ngắn) | Actor | Bottleneck | Câu hỏi phản biện nhận được (ai hỏi) |
 |---:|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
+| 1 | Trương Việt Công | Khi tiếp nhận hồ sơ vay, tôi muốn nhận biết sớm giấy tờ/thông tin còn thiếu để giảm yêu cầu bổ sung nhiều lần. | Nhân viên tiếp nhận; khách hàng. | Kiểm tra tính đầy đủ, ước tính 10–20 phút/hồ sơ. | Ghi câu hỏi và người phản biện tại buổi pitch. |
+| 2 | Trương Việt Công | Khi hồ sơ đang được thẩm định/phê duyệt, tôi muốn biết hồ sơ đang chờ ở đâu và ai xử lý tiếp để theo dõi bàn giao. | Nhân viên xử lý hồ sơ; quản lý tiến độ. | Chờ giữa lúc bàn giao và lúc bước tiếp theo được nhận. | Ghi câu hỏi và người phản biện tại buổi pitch. |
+| 3 | Trương Việt Công | Khi rà soát hồ sơ vay, tôi muốn biết thông tin nào đã được kiểm tra để tránh đối chiếu trùng mà vẫn giữ đủ control point. | Nhân viên thẩm định/kiểm soát. | Tìm hoặc đối chiếu lại kết quả trước, ước tính 10–20 phút. | Ghi câu hỏi và người phản biện tại buổi pitch. |
 | 4 | | | | | |
 | 5 | | | | | |
 | 6 | | | | | |
